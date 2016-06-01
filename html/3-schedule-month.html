@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="hrportal">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../css/index.min.css">
+    <title>Schedule</title>
+
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+
+<div style="background-color: #536d79; height: 69px"></div>
+
+<div class="schedule schedule__months">
+    <div class="schedule-panel">
+        <div class="schedule-panel__head">
+            <button class="schedule-panel__btn_all">
+                <span>Все салоны</span>
+            </button>
+        </div>
+        <div class="schedule-panel__item_group">
+            <div class="schedule-panel__left">
+                <span class="mdi mdi-chevron-down"></span>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">
+                    Салон «Московский»
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Ирина Величко</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">менеджер</div>
+                    <div class="schedule-panel__info">
+                        <span class="schedule-panel__gray">28</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Петр петров wwwwwwwwwwwwww</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец wwwwwwwwwwwwwwwwwwwwwwwww</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Иван Иванов</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец</div>
+                    <div class="schedule-panel__info">
+                        <span class="schedule-panel__red">42</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Владимир Пак</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Светлана Назарова</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">технолог</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Кирилл Веселый</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">мерчандайзер</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Ким Ли</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">саппорт</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item_group">
+            <div class="schedule-panel__left">
+                <span class="mdi mdi-chevron-down"></span>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">
+                    Салон «Суворовский» wwwwwwwwwwwwww
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Ирина Величко</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">менеджер</div>
+                    <div class="schedule-panel__info">
+                        <span class="schedule-panel__gray">28</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Петр петров</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Иван Иванов</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец</div>
+                    <div class="schedule-panel__info">
+                        <span class="schedule-panel__red">42</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Владимир Пак</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="schedule__timeline">
+        <div class="schedule__container" style="margin-left: 285px">
+            <div class="schedule__group schedule__group_today">
+                <div class="schedule__title">
+                    <div class="schedule__date">Декабрь</div>
+                    <div class="schedule__today">этот месяц</div>
+                </div>
+                <div class="schedule__separator"></div>
+                <div class="schedule__marks">
+                    <div class="schedule__mark">1</div>
+                    <div class="schedule__mark">2</div>
+                    <div class="schedule__mark">3</div>
+                    <div class="schedule__mark">4</div>
+                    <div class="schedule__mark schedule__mark_passive">5</div>
+                    <div class="schedule__mark schedule__mark_passive">6</div>
+                    <div class="schedule__mark">7</div>
+                    <div class="schedule__mark">8</div>
+                    <div class="schedule__mark">9</div>
+                    <div class="schedule__mark">10</div>
+                    <div class="schedule__mark">11</div>
+                    <div class="schedule__mark schedule__mark_passive">12</div>
+                    <div class="schedule__mark schedule__mark_passive">13</div>
+                    <div class="schedule__mark">14</div>
+                    <div class="schedule__mark">15</div>
+                    <div class="schedule__mark">16</div>
+                    <div class="schedule__mark">17</div>
+                    <div class="schedule__mark">18</div>
+                    <div class="schedule__mark schedule__mark_passive">19</div>
+                    <div class="schedule__mark schedule__mark_passive">20</div>
+                    <div class="schedule__mark">21</div>
+                    <div class="schedule__mark">22</div>
+                    <div class="schedule__mark">23</div>
+                    <div class="schedule__mark">24</div>
+                    <div class="schedule__mark">25</div>
+                    <div class="schedule__mark schedule__mark_passive">26</div>
+                    <div class="schedule__mark schedule__mark_passive">27</div>
+                    <div class="schedule__mark">28</div>
+                    <div class="schedule__mark">29</div>
+                    <div class="schedule__mark">30</div>
+                    <div class="schedule__mark">31</div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__title">
+                    <div class="schedule__date">Январь</div>
+                </div>
+                <div class="schedule__separator"></div>
+                <div class="schedule__marks">
+                    <div class="schedule__mark">1</div>
+                    <div class="schedule__mark">2</div>
+                    <div class="schedule__mark">3</div>
+                    <div class="schedule__mark">4</div>
+                    <div class="schedule__mark schedule__mark_passive">5</div>
+                    <div class="schedule__mark schedule__mark_passive">6</div>
+                    <div class="schedule__mark">7</div>
+                    <div class="schedule__mark">8</div>
+                    <div class="schedule__mark">9</div>
+                    <div class="schedule__mark">10</div>
+                    <div class="schedule__mark">11</div>
+                    <div class="schedule__mark schedule__mark_passive">12</div>
+                    <div class="schedule__mark schedule__mark_passive">13</div>
+                    <div class="schedule__mark">14</div>
+                    <div class="schedule__mark">15</div>
+                    <div class="schedule__mark">16</div>
+                    <div class="schedule__mark">17</div>
+                    <div class="schedule__mark">18</div>
+                    <div class="schedule__mark schedule__mark_passive">19</div>
+                    <div class="schedule__mark schedule__mark_passive">20</div>
+                    <div class="schedule__mark">21</div>
+                    <div class="schedule__mark">22</div>
+                    <div class="schedule__mark">23</div>
+                    <div class="schedule__mark">24</div>
+                    <div class="schedule__mark">25</div>
+                    <div class="schedule__mark schedule__mark_passive">26</div>
+                    <div class="schedule__mark schedule__mark_passive">27</div>
+                    <div class="schedule__mark">28</div>
+                    <div class="schedule__mark">29</div>
+                    <div class="schedule__mark">30</div>
+                    <div class="schedule__mark">31</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="schedule__content" style="margin-left: 285px">
+        <div class="schedule__row_group">
+            <div class="schedule__group">
+            <div class="schedule__layout">
+                <div class="schedule__row_conflict">
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="bar bar--small" style="left: 397px; width: 45px;"></div>
+                </div>
+                <div class="schedule__row">
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__25"></div>
+                    </div>
+                </div>
+                <div class="schedule__row">
+                    <div class="schedule__holidays">
+                        <div class="schedule__holiday">
+                            <div class="schedule__holiday_text">Отпуск до 24.12.2015</div>
+                        </div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                </div>
+                <div class="schedule__row">
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                </div>
+                <div class="schedule__row">
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__78"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                </div>
+                <div class="schedule__row">
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__12"></div>
+                    </div>
+                </div>
+                <div class="schedule__row">
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__41"></div>
+                    </div>
+                </div>
+                <div class="schedule__row">
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell"></div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                    <div class="schedule__layout_cell">
+                        <div class="bar bar--wide schedule-color__60"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__12"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__41"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__60"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule__row_group">
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--small" style="left: 397px; width: 45px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__25"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                        <div class="schedule__layout_cell">
+                            <div class="bar bar--wide schedule-color__78"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

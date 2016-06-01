@@ -1,0 +1,216 @@
+@import "../node_modules/material-design-lite/src/mixins";
+@import "../node_modules/material-design-lite/src/variables";
+@import "variables";
+
+@mixin schedule__mode($width) {
+  .schedule__mark {
+    width: $width;
+    text-align: center;
+  }
+  .schedule__layout_cell {
+    width: $width - 1px;
+    border-right: 1px solid $gray95;
+  }
+  .schedule__layout_cell_passive {
+    width: $width;
+    background-color: $gray99;
+    &:last-child:not(:nth-child(7)) {
+      width: $width - 1px;
+      border-right: 1px solid $gray95;
+    }
+  }
+  .schedule__row_conflict {
+    .schedule__layout_cell {
+      width: $width;
+      border-right: 0;
+    }
+  }
+}
+
+.schedule {
+  position: relative;
+  padding-top: $scheduleTimeLineHeight;
+  overflow-x: hidden;
+
+  &__animation {
+    @include material-animation-fast-out-slow-in;
+  }
+
+  &__days {
+    @include schedule__mode($scheduleHourCellWidth);
+  }
+  &__weeks {
+    @include schedule__mode($scheduleDayInWeekCellWidth);
+  }
+  &__months {
+    @include schedule__mode($scheduleDayInMonthCellWidth);
+  }
+
+  &__timeline {
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $scheduleTimeLineHeight;
+    background-color: $white;
+    @include shadow-2dp;
+  }
+
+  &__container {
+    display: flex;
+    height: 100%;
+  }
+  &__content {
+    padding-bottom: $scheduleIndent;
+  }
+  &__layout {
+    background-color: $white;
+    @include shadow-2dp;
+  }
+
+  &__group {
+    flex-shrink: 0;
+    padding: 0 $scheduleIndent/2;
+    height: 100%;
+  }
+  &__group_past {
+    .schedule__title {
+      color: $gray65;
+    }
+    .schedule__mark {
+      color: $gray65;
+    }
+    .schedule__mark_passive {
+      color: $gray90;
+    }
+    .schedule__layout {
+      background-color: $gray96;
+    }
+    .schedule__layout_cell,
+    .schedule__row {
+      border-color: $gray87;
+    }
+  }
+  &__group_today {
+    .schedule__separator {
+      background-color: $pink;
+    }
+  }
+
+  &__title {
+    display: flex;
+    padding-top: $indent;
+    @include typo-subhead;
+  }
+  &__date {
+    width: 100%;
+  }
+
+  &__today {
+    flex-shrink: 0;
+    color: $red;
+  }
+
+  &__separator {
+    height: $scheduleBorderWidth;
+    background-color: $gray95;
+    margin: $indent/2 0;
+  }
+
+  &__marks {
+    display: flex;
+  }
+  &__mark {
+    @include typo-caption;
+    color: $black;
+  }
+  &__mark_passive {
+    color: $gray65;
+  }
+
+  &__row_group {
+    display: flex;
+    padding-top: $scheduleIndent;
+  }
+  &__row_conflict {
+    display: flex;
+    position: relative;
+    height: $scheduleRowConflict;
+  }
+  &__row {
+    display: flex;
+    position: relative;
+    border-top: $scheduleBorderWidth solid $gray95;
+    height: $scheduleRowHeight - $scheduleBorderWidth;
+    &:last-child {
+      height: $scheduleRowHeight;
+    }
+  }
+
+  &__layout_cell {
+    position: relative;
+  }
+
+  &__now {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    border-right: $scheduleBorderWidth dashed $blueSoft;
+  }
+
+  &__holiday {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  &__holidays {
+    display: flex;
+    position: relative;
+  }
+  &__holiday_text {
+    @include typo-body-1;
+    color: $gray65;
+  }
+
+  &__select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  &__curtain {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    background-color: rgba(0, 0, 0, .2);
+
+    &--top {
+      top: 0;
+    }
+    &--bottom {
+      bottom: 0;
+    }
+  }
+
+  &__fab {
+    z-index: 15;
+    position: fixed;
+    bottom: $indent * 1.25;
+
+    &--left {
+      left: $schedulePanelWidth + $indent * 1.25;
+    }
+    &--right {
+      right: $indent * 1.25;
+    }
+  }
+}

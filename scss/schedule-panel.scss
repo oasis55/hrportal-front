@@ -1,0 +1,159 @@
+@import "../node_modules/material-design-lite/src/mixins";
+@import "../node_modules/material-design-lite/src/variables";
+@import "variables";
+
+.schedule-panel {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: $schedulePanelWidth;
+  background-color: $white;
+  @include shadow-4dp;
+
+  &__head {
+    display: flex;
+    align-items: flex-end;
+
+    padding: $indent $indent 0 $indent*1.5;
+    height: $schedulePanelHeadHeight - $indent;
+    text-align: right;
+  }
+
+  &__item {
+    cursor: pointer;
+    display: flex;
+    height: $schedulePanelItemHeight;
+    @include material-animation-fast-out-slow-in;
+
+    &--select {
+      background-color: $gray96;
+    }
+
+    &:hover {
+      background-color: $gray96;
+    }
+  }
+  &__item_group {
+    cursor: pointer;
+    display: flex;
+    height: $scheduleRowConflict + $indent;
+    border-bottom: $scheduleBorderWidth solid $gray87;
+    color: $black;
+    @include typo-body-1;
+    .schedule-panel__left {
+      min-width: $indent*2.5 + $schedulePanelUserPic;
+    }
+    .schedule-panel__right {
+      width: 100%;
+      border-bottom: 0;
+    }
+  }
+
+  &__left {
+    flex-shrink: 0;
+    .mdi {
+      $delta: ($schedulePanelUserPic - 24px) / 2;
+      margin: ($indent) ($indent + $delta) 0 ($indent*1.5 + $delta);
+      font-size: 24px;
+      color: $gray55;
+    }
+  }
+  &__right {
+    width: 100%;
+    border-bottom: $scheduleBorderWidth solid $gray87;
+    padding: $indent $indent 0 0;
+
+    overflow: hidden;
+  }
+
+  &__user_pic {
+    margin: $indent $indent 0 $indent;
+    width: $schedulePanelUserPic;
+    height: $schedulePanelUserPic;
+    border-radius: $schedulePanelUserPic;
+    background-color: $blueGray;
+  }
+  &__name {
+    color: $black;
+    @include typo-body-1;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__position {
+    display: flex;
+    color: $blueGray;
+    @include typo-caption;
+  }
+
+  &__post {
+    width: 100%;
+    color: $gray55;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__info {}
+  &__gray {
+    color: $blueSoft;
+  }
+  &__red {
+    color: $red;
+  }
+
+  &__btn_all {
+    width: 100%;
+    //height: 56px;
+
+
+    background-color: $green;
+    border: none;
+    border-radius: $button-border-radius;
+    color: $white;
+    position: relative;
+    height: $button-height;
+    margin: 0 0 $indent / 2 0;
+    min-width: $button-min-width;
+    padding: 0 $button-padding;
+    display: inline-block;
+    @include typo-button();
+    overflow: hidden;
+    will-change: box-shadow;
+    transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+    background-color 0.2s $animation-curve-default,
+    color 0.2s $animation-curve-default;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    //text-align: left;
+    line-height: $button-height;
+    vertical-align: middle;
+
+    //margin-bottom: $indent / 2;
+
+    @include shadow-2dp;
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+
+    &:hover {
+      //background-color: $gray55;
+    }
+
+    &:focus:not(:active) {
+      //  background-color: $button-focus-color;
+    }
+
+    &:active {
+      background-color: $gray55;
+    }
+
+  }
+
+}

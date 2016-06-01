@@ -1,0 +1,91 @@
+@import "../node_modules/material-design-lite/src/mixins";
+@import "../node_modules/material-design-lite/src/variables";
+@import "variables";
+
+.shift {
+
+  display: flex;
+  align-items: flex-end;
+
+  &__row {
+    display: table-row;
+  }
+  &__cell {}
+  &__cell_full {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  &__marks {
+    display: flex;
+  }
+  &__mark {
+    width: $scheduleHourCellWidth;
+    @include typo-caption;
+    //color: $black;
+  }
+  &__mark_passive {
+    color: $gray65;
+  }
+
+  &__row_time {
+    position: relative;
+    display: flex;
+    margin-top: $indent;
+    border: $scheduleBorderWidth solid $gray95;
+    height: $scheduleRowHeight - $scheduleBorderWidth;
+  }
+  &__row_time--left {
+    border-right: 0;
+  }
+  &__cell_time {
+    position: relative;
+    width: $scheduleHourCellWidth - 1px;
+    border-right: 1px solid $gray95;
+  }
+
+  &__left {
+    flex-shrink: 0;
+  }
+  &__right {
+    width: 100%;
+    padding: $indent $indent $indent 0;
+
+    overflow: hidden;
+  }
+  &__user_pic {
+    margin: $indent;
+    width: $schedulePanelUserPic;
+    height: $schedulePanelUserPic;
+    border-radius: $schedulePanelUserPic;
+    background-color: $blueGray;
+  }
+  &__name {
+    @include typo-body-1;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__position {
+    display: flex;
+    @include typo-caption;
+  }
+  &__post {
+    width: 100%;
+    color: $gray55;
+
+    //max-width: 80px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+}

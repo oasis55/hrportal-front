@@ -1,0 +1,9 @@
+@import "variables";
+
+.color {
+  &__color--red {color: $red}
+  &__color--green{color: $green}
+  &__color--green_soft{color: $greenSoft}
+  &__color--gray55{color: $gray55}
+  &__color--gray65{color: $gray65}
+}

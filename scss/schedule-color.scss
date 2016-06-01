@@ -1,0 +1,17 @@
+
+.schedule-color {
+  @for $i from 1 through 100 {
+    &__#{$i} {
+      background-color: hsl(360 * $i / 100, 50, 65) !important;
+      &:hover {
+        background-color: hsl(360 * $i / 100, 50, 50) !important;
+      }
+    }
+    &__past_#{$i} {
+      background-color: hsl(360 * $i / 100, 50, 75) !important;
+    }
+    &__fade_#{$i} {
+      background-color: hsl(360 * $i / 100, 50, 85) !important;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import "../node_modules/material-design-lite/src/mixins";
+@import "variables";
+
+.schedule-dialog {
+
+  width: 800px;
+
+  &--850 {
+    width: 850px;
+  }
+
+  &__btn_left {
+    margin-right: auto;
+  }
+
+  .mdl-dialog {
+    &__title {
+      @include typo-title;
+      color: $black;
+    }
+    &__content {
+      color: $black;
+    }
+    &__actions {
+      padding: $indent / 2;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+
+// Colors
+$white: #fff;
+$black: #000;
+
+$gray99: #fcfcfc;
+$gray96: #f5f5f5;
+$gray95: #f2f2f2;
+$gray90: #e5e5e5;
+$gray87: #dfdfdf;
+$gray65: #ababab;
+$gray55: #8b8b8b;
+$gray25: #404040;
+
+$red: #f44336;
+$pink: #eb9696;
+$blueGray: #536d79;
+$blueSoft: #90a3ad;
+$green: #00796b;
+$greenSoft: #388e3c;
+$yellow: #ffca28;
+
+// Base
+$indent: 16px;
+
+// Schedule
+$scheduleIndent: $indent; // 22px
+$scheduleBorderWidth: 1px;
+$scheduleTimeLineHeight: 80px;
+$scheduleRowHeight: 68px;
+$scheduleRowConflict: 36px;
+$scheduleHourCellWidth: 36px;
+$scheduleDayInWeekCellWidth: 96px;
+$scheduleDayInMonthCellWidth: 30px;
+
+// SchedulePanel
+$schedulePanelWidth: 275px;
+$schedulePanelHeadHeight: $scheduleTimeLineHeight;
+$schedulePanelItemHeight: $scheduleRowHeight;
+$schedulePanelUserPic: 35px;

@@ -1,0 +1,62 @@
+@import "variables";
+
+.conflict {
+
+  &__row {
+    display: flex;
+    border-top: 1px solid $gray65;
+    //padding: $indent 0;
+    width: 100%;
+
+    overflow: hidden;
+  }
+  &__row_inner {
+    display: flex;
+  }
+  &__col {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__col_time {
+    display: flex;
+    margin-right: $indent;
+    width: 125px;
+    flex-shrink: 0;
+    align-items: center;
+    button {
+      color: $gray65;
+    }
+  }
+  &__col_btn {
+    margin-left: $indent;
+    padding: $indent 0;
+    min-width: 150px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  &__col_description {
+    margin-left: $indent;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  &__group {
+    margin-bottom: $indent;
+  }
+
+  &__schedule {
+    width: 100%;
+    text-align: right;
+  }
+
+  &__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+}

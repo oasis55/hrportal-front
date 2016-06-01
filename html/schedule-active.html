@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="hrportal">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/index.min.css">
+    <title>Schedule</title>
+
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body ng-controller="mainCtrl">
+<div style="background-color: #536d79; height: 56px">
+    <a href="#" ng-click="setPeriod('day')">День</a><br>
+    <a href="#" ng-click="setPeriod('week')">Неделя</a><br>
+    <a href="#" ng-click="setPeriod('month')">Месяц</a><br>
+</div>
+<div class="schedule"
+     ng-class="{
+        'schedule__days': period === 'day',
+        'schedule__weeks': period === 'week',
+        'schedule__months': period === 'month'
+        }">
+    <div class="schedule-panel">
+        <div class="schedule-panel__head">
+            <button class="schedule-panel__btn_all">
+                <!--todo: добавить иконку-->
+                Все салоны
+            </button>
+        </div>
+        <div class="schedule-panel__item_group"
+             ng-click="showGroup1 = !showGroup1">
+            <div class="schedule-panel__left">
+                <div class="mdi mdi-chevron-down"
+                     ng-if="showGroup1"></div>
+            </div>
+            <div class="schedule-panel__right">Салон «Московский»</div>
+        </div>
+        <div class="schedule-panel__item"
+             ng-if="showGroup1"
+             ng-repeat="user in users">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">{{::user.name}}</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">{{::user.role}}</div>
+                    <div class="schedule-panel__info">
+                        <span class="schedule-panel__gray">28</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item_group"
+             ng-click="showGroup2 = !showGroup2">
+            <div class="schedule-panel__left">
+                <div class="mdi mdi-chevron-down"
+                     ng-if="showGroup2"></div>
+            </div>
+            <div class="schedule-panel__right">Салон «Суворовский»</div>
+        </div>
+        <div class="schedule-panel__item"
+             ng-if="showGroup2"
+             ng-repeat="user in users">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">{{::user.name}}</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">{{::user.role}}</div>
+                    <div class="schedule-panel__info">
+                        <span class="schedule-panel__gray">28</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="schedule__timeline">
+
+        <div class="schedule__container" style="margin-left: -300px;">
+
+            <div class="schedule__group schedule__group_past">
+                <div class="schedule__title">
+                    <div class="schedule__date" ng-if="period === 'day'">{{:: getDate(now, -1) | date:'dd MMMM, EEEE' }}</div>
+                    <div class="schedule__date" ng-if="period === 'week'">{{:: 0 }}</div>
+                    <div class="schedule__date" ng-if="period === 'month'">{{:: 0 }}</div>
+                </div>
+                <div class="schedule__separator"></div>
+                <div class="schedule__marks">
+                    <div class="schedule__mark"
+                         ng-repeat="mark in repeatArray"
+                         ng-class="{'schedule__mark_passive': !mark.active}">
+                        {{::mark.hour}}<sup>00</sup>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group schedule__group_today">
+                <div class="schedule__title">
+                    <div class="schedule__date" ng-if="period === 'day'">{{:: getDate(now, -1) | date:'dd MMMM, EEEE' }}</div>
+                    <div class="schedule__date" ng-if="period === 'week'">
+                        {{:: repeatArray[0] | date:'dd MMMM' }} – {{:: repeatArray[6] | date:'dd MMMM' }}
+                    </div>
+                    <div class="schedule__date" ng-if="period === 'month'">{{:: $index }}</div>
+                    <div class="schedule__today">сегодня</div>
+                </div>
+                <div class="schedule__separator"></div>
+                <div class="schedule__marks">
+                    <div class="schedule__mark"
+                         ng-repeat="mark in repeatArray"
+                         ng-class="{'schedule__mark_passive': !mark.active}">
+                        {{::mark.hour}}<sup>00</sup>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__title">
+                    <div class="schedule__date">{{getDate(now, 1) | date:'dd MMMM, EEEE'}}</div>
+                </div>
+                <div class="schedule__separator"></div>
+                <div class="schedule__marks">
+                    <div class="schedule__mark"
+                         ng-repeat="mark in repeatArray"
+                         ng-class="{'schedule__mark_passive': !mark.active}">
+                        {{::mark.hour}}<sup>00</sup>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="schedule__content" style="margin-left: -300px;">
+
+        <div class="schedule__row_group">
+
+            <div class="schedule__group schedule__group_past">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                    </div>
+                    <div class="schedule__row"
+                         ng-if="showGroup1"
+                         ng-repeat="user in users">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                        <div class="schedule__bar_small" style="left: 414px; width: 59px;"></div>
+                    </div>
+                    <div class="schedule__row"
+                         ng-if="showGroup1"
+                         ng-repeat="user in users">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                        <div class="schedule__bar" style="left: 44px; width: 466px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                    </div>
+                    <div class="schedule__row"
+                         ng-if="showGroup1"
+                         ng-repeat="user in users">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="schedule__row_group">
+
+            <div class="schedule__group schedule__group_past">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                    </div>
+                    <div class="schedule__row"
+                         ng-if="showGroup2"
+                         ng-repeat="user in users">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                    </div>
+                    <div class="schedule__row"
+                         ng-if="showGroup2"
+                         ng-repeat="user in users">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                    </div>
+                    <div class="schedule__row"
+                         ng-if="showGroup2"
+                         ng-repeat="user in users">
+                        <div class="schedule__layout_cell" ng-repeat="mark in repeatArray"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="schedule__now" style="left: 400px"></div>
+</div>
+</body>
+</html>

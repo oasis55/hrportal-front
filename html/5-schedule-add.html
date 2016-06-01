@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="hrportal">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../css/index.min.css">
+    <title>Schedule</title>
+
+    <!-- IE Compatibility shims -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js""></script>
+    <![endif]-->
+
+    <!--[if IE]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.7/es5-shim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/flexie/1.0.3/flexie.min.js"></script>
+    <link href="../node_modules/material-design-lite/dist/assets/ie.css" rel="stylesheet">
+    <![endif]-->
+    <!-- end shims -->
+
+
+    <!-- Material Design Lite -->
+    <script src="../node_modules/material-design-lite/dist/material.min.js"></script>
+    <!-- Add Copy-to-CodePen buttons to code blocks -->
+    <script src="../node_modules/material-design-lite/dist/assets/codepen.js"></script>
+    <!-- Enable Prism syntax highlighting -->
+    <script src="../node_modules/material-design-lite/dist/assets/prism.js"></script>
+    <script src="../node_modules/material-design-lite/dist/assets/prism-markup.min.js"></script>
+    <script src="../node_modules/material-design-lite/dist/assets/prism-javascript.min.js"></script>
+    <script src="../node_modules/material-design-lite/dist/assets/prism-css.min.js"></script>
+    <script src="../node_modules/material-design-lite/dist/assets/prism-bash.min.js"></script>
+    <script src="../node_modules/material-design-lite/dist/assets/main.js"></script>
+    <!-- Built with love using Material Design Lite -->
+
+    <script src="../node_modules/dialog-polyfill/dialog-polyfill.js"></script>
+
+
+</head>
+<body ng-controller="mainCtrl">
+
+<div style="background-color: #536d79; height: 69px"></div>
+
+<div class="schedule schedule__days">
+    <div class="schedule-panel">
+        <div class="schedule-panel__head">
+            <button class="schedule-panel__btn_all">
+                <span>Все салоны</span>
+            </button>
+        </div>
+        <div class="schedule-panel__item_group">
+            <div class="schedule-panel__left">
+                <span class="mdi mdi-chevron-down"></span>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">
+                    Салон «Московский»
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Ирина Величко</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">менеджер</div>
+                    <div class="schedule-panel__info">
+                        <span class="schedule-panel__gray">28</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Петр петров wwwwwwwwwwwwww</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец wwwwwwwwwwwwwwwwwwwwwwwww</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Иван Иванов</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец</div>
+                    <div class="schedule-panel__info">
+                        <span class="schedule-panel__red">42</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Владимир Пак</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Светлана Назарова</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">технолог</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Кирилл Веселый</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">мерчандайзер</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Ким Ли</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">саппорт</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item_group">
+            <div class="schedule-panel__left">
+                <span class="mdi mdi-chevron-down"></span>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">
+                    Салон «Суворовский» wwwwwwwwwwwwww
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Ирина Величко</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">менеджер</div>
+                    <div class="schedule-panel__info">
+                        <span class="schedule-panel__gray">28</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Петр петров</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Иван Иванов</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец</div>
+                    <div class="schedule-panel__info">
+                        <span class="schedule-panel__red">42</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule-panel__item">
+            <div class="schedule-panel__left">
+                <div class="schedule-panel__user_pic"></div>
+            </div>
+            <div class="schedule-panel__right">
+                <div class="schedule-panel__name">Владимир Пак</div>
+                <div class="schedule-panel__position">
+                    <div class="schedule-panel__post">продавец</div>
+                    <div class="schedule-panel__info">
+                        <span>40</span>&nbsp;/&nbsp;40
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="schedule__timeline">
+        <div class="schedule__container" style="margin-left: -155px">
+            <div class="schedule__group schedule__group_past">
+                <div class="schedule__title">19 ноября, пятница</div>
+                <div class="schedule__separator"></div>
+                <div class="schedule__marks">
+                    <div class="schedule__mark schedule__mark_passive">
+                        6<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark schedule__mark_passive">
+                        7<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        8<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        9<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        10<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        11<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        12<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        13<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        14<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        15<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        16<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        17<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        18<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        19<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark schedule__mark_passive">
+                        20<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark schedule__mark_passive">
+                        21<sup>00</sup>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group schedule__group_today">
+                <div class="schedule__title">
+                    <div class="schedule__date">20 ноября, пятница</div>
+                    <div class="schedule__today">сегодня</div>
+                </div>
+                <div class="schedule__separator"></div>
+                <div class="schedule__marks">
+                    <div class="schedule__mark schedule__mark_passive">
+                        6<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark schedule__mark_passive">
+                        7<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        8<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        9<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        10<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        11<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        12<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        13<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        14<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        15<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        16<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        17<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        18<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        19<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark schedule__mark_passive">
+                        20<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark schedule__mark_passive">
+                        21<sup>00</sup>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__title">21 ноября, пятница</div>
+                <div class="schedule__separator"></div>
+                <div class="schedule__marks">
+                    <div class="schedule__mark schedule__mark_passive">
+                        6<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark schedule__mark_passive">
+                        7<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        8<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        9<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        10<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        11<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        12<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        13<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        14<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        15<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        16<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        17<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        18<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark">
+                        19<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark schedule__mark_passive">
+                        20<sup>00</sup>
+                    </div>
+                    <div class="schedule__mark schedule__mark_passive">
+                        21<sup>00</sup>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="schedule__content" style="margin-left: -155px">
+        <div class="schedule__row_group">
+            <div class="schedule__group schedule__group_past">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_25" style="left: 112px;width: 351px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_78" style="left: 76px;width: 423px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_78" style="left: 76px;width: 423px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_78" style="left: 112px;width: 387px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_12" style="left: 76px;width: 387px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_41" style="left: 76px;width: 315px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_60" style="left: 112px;width: 387px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--small" style="left: 400px; width: 63px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__25" style="left: 112px;width: 351px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__holiday" style="left: 0; right: 0">
+                            <div class="schedule__holiday_text">Отпуск до 24.12.2015</div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__78" style="left: 76px;width: 423px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__78" style="left: 112px;width: 387px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__12" style="left: 76px;width: 387px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__41" style="left: 76px;width: 315px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__60" style="left: 112px;width: 387px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--small" style="left: 400px; width: 63px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__25" style="left: 112px;width: 351px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__layout_cell_passive"></div>
+                        <div class="schedule__holiday" style="left: 0; right: 0">
+                            <div class="schedule__holiday_text">Отпуск до 24.12.2015</div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__78" style="left: 76px;width: 423px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__78" style="left: 112px;width: 387px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__12" style="left: 76px;width: 387px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__41" style="left: 76px;width: 315px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__60" style="left: 112px;width: 387px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schedule__row_group">
+            <div class="schedule__group schedule__group_past">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_25" style="left: 112px;width: 351px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_78" style="left: 76px;width: 423px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_78" style="left: 76px;width: 423px;"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--past schedule-color__past_78" style="left: 112px;width: 387px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar bar--small" style="left: 76px; width: 27px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__25" style="left: 112px;width: 351px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__78" style="left: 76px;width: 423px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__78" style="left: 76px;width: 423px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__78" style="left: 112px;width: 387px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__group">
+                <div class="schedule__layout">
+                    <div class="schedule__row_conflict">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__25" style="left: 112px;width: 351px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__78" style="left: 76px;width: 423px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__78" style="left: 76px;width: 423px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="schedule__row">
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="schedule__layout_cell"></div>
+                        <div class="bar schedule-color__78" style="left: 112px;width: 387px;">
+                            <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                            <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="schedule__now" style="left: 595px"></div>
+</div>
+
+<dialog class="schedule-dialog schedule-dialog--850 mdl-dialog">
+    <h4 class="mdl-dialog__title">Добавление смены</h4>
+    <div class="mdl-dialog__content">
+        <div class="shift">
+            <div class="shift__cell_full">
+                <div class="shift__text">Салон «Московский»</div>
+                <br>
+                <div class="shift__text mdl-typography--caption">Сотрудник</div>
+                <div class="shift__row_time shift__row_time--left">
+                    <div class="shift__left">
+                        <div class="shift__user_pic"></div>
+                    </div>
+                    <div class="shift__right">
+                        <div class="shift__name">Иван Иванов</div>
+                        <div class="shift__position">
+                            <div class="shift__post">продавец</div>
+                            <div class="shift__info">
+                                <span class="color__color--red">42</span>&nbsp;/&nbsp;<span class="color__color--gray55">40</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shift__cell">
+                <div class="shift__text">20 ноября, пятница</div>
+                <br>
+                <div class="shift__text shift__marks">
+                    <div class="shift__mark shift__mark_passive">
+                        6<sup>00</sup>
+                    </div>
+                    <div class="shift__mark shift__mark_passive">
+                        7<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        8<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        9<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        10<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        11<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        12<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        13<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        14<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        15<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        16<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        17<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        18<sup>00</sup>
+                    </div>
+                    <div class="shift__mark">
+                        19<sup>00</sup>
+                    </div>
+                    <div class="shift__mark shift__mark_passive">
+                        20<sup>00</sup>
+                    </div>
+                    <div class="shift__mark shift__mark_passive">
+                        21<sup>00</sup>
+                    </div>
+                </div>
+                <div class="shift__row_time">
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="shift__cell_time"></div>
+                    <div class="bar schedule-color__78" style="left: 76px;width: 423px;">
+                        <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"></div>
+                        <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <p>
+            Внимание! У сотрудника овертайм <span class="color__color--red">2 часа</span>.
+        </p>
+    </div>
+    <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button">СОХРАНИТЬ</button>
+        <button type="button" class="mdl-button close">ОТМЕНИТЬ</button>
+        <button type="button" class="mdl-button schedule-dialog__btn_left">СБРОСИТЬ</button>
+    </div>
+</dialog>
+
+<script>
+    var dialog = document.querySelector('dialog');
+    dialog.querySelector('.close').addEventListener('click', function() {
+        dialog.close();
+    });
+//    setTimeout(function () {
+        dialog.showModal();
+//    }, 2000)
+</script>
+
+</body>
+</html>

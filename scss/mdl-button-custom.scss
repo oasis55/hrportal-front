@@ -1,0 +1,121 @@
+@import "../node_modules/material-design-lite/src/mixins";
+@import "../node_modules/material-design-lite/src/variables";
+@import "variables";
+
+.mdl-button {
+
+  &:hover {
+  }
+
+  &:focus:not(:active) {
+    background-color: transparent;
+  }
+
+  &:active { }
+
+  &.mdl-button--colored {
+    background-color: $green;
+    color: $white;
+
+    &:hover {
+      background-color: $green;
+    }
+
+    &:focus:not(:active) {
+      background-color: $green;
+    }
+  }
+
+  &.mdl-button--green-soft {
+    background-color: $greenSoft;
+    color: $white;
+
+    &:active {
+      background-color: $gray65 !important;
+    }
+
+    &:hover {
+      background-color: $greenSoft;
+    }
+
+    &:focus:not(:active) {
+      background-color: $greenSoft;
+    }
+  }
+
+  &.mdl-button--white {
+    background-color: $gray96;
+    color: $gray25;
+
+    &:active {
+      //background-color: $gray65 !important;
+    }
+
+    &:hover {
+      background-color: $gray96;
+    }
+
+    &:focus:not(:active) {
+      background-color: $gray96;
+    }
+  }
+
+  &.mdl-button--red {
+    background-color: $red;
+    color: $white;
+
+    &:active {
+      //background-color: $gray65 !important;
+    }
+
+    &:hover {
+      background-color: $red;
+    }
+
+    &:focus:not(:active) {
+      background-color: $red;
+    }
+  }
+}
+
+// Raised buttons
+.mdl-button--raised {
+
+  &:active {
+    @include shadow-4dp();
+  }
+
+  &:focus:not(:active) {
+    @include shadow-2dp();
+  }
+
+  &.mdl-button--colored {
+
+    &:hover {
+    }
+
+    &:active {
+      background-color: $gray55;
+    }
+
+    &:focus:not(:active) {
+    }
+
+    & .mdl-ripple {
+    }
+  }
+}
+
+.mdl-button--icon {
+
+  & .material-icons {
+  }
+
+  &.mdl-button--mini-icon {
+    & .material-icons {
+    }
+  }
+
+  & .mdl-button__ripple-container {
+  }
+}
