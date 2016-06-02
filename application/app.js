@@ -1,9 +1,12 @@
-import Schedule from 'services/schedule';
-import $ from 'github:components/jquery@2.2.0';
+import Schedule from 'services/schedule'
+import Events from  'services/events'
+import Color from 'services/color'
+import $ from 'jquery'
+import _ from 'lodash'
 
-function c(m) {
-    window.console.log(m);
-}
+// function c(m) {
+//     window.console.log(m);
+// }
 
 export class App {
 
@@ -83,6 +86,7 @@ export class App {
     ];
     dateFormat = Schedule.dateFormat;
     animate = true;
+    events = Events;
 
     indent              = 16;
     cellWidth           = null;
@@ -97,13 +101,19 @@ export class App {
     screenWidth         = null;
 
     constructor() {
+        
+        _.forEach(this.employersJSONArray, function(level1) {
+            _.forEach(level1.employers, function (level2) {
+                level2.colorCode = Color.getColorIndex(level2.role);
+            });
+        });
+
     }
 
     attached() {
         this.$schedule = $(this.schedule);
         this.screenWidth = this.$schedule.width();
         this.screenHeight = this.$schedule.height();
-        c(this.screenWidth);
         this.setPeriod();
 
         $(window).bind('resize', $.proxy(this.resize, this));
@@ -116,7 +126,6 @@ export class App {
     resize() {
         this.screenWidth = this.$schedule.width();
         this.screenHeight = this.$schedule.height();
-        c(this.screenWidth);
         this
             .inflate()
             .setAnimate(true)
@@ -156,21 +165,21 @@ export class App {
         this.animate = value;
         return this;
     }
-    
+
     move(step) {
 
         let vm = this;
 
-        function left(getterDate, getterArray, getterEquals) {
+        function left(addUnits, getterArray, equalUnits) {
 
-            let date = Schedule[getterDate](this.dateArray[0][0], -1),
-                centerIndex      = Math.floor(this.dateArray.length / 2),
-                centerBlockWidth = this.dateArray[centerIndex].length * this.cellWidth + this.indent,
-                previousBockWidth    = this.dateArray[centerIndex - 1].length * this.cellWidth + this.indent,
+            let date              = Schedule.add(addUnits, this.dateArray[0][0], -1),
+                centerIndex       = Math.floor(this.dateArray.length / 2),
+                centerBlockWidth  = this.dateArray[centerIndex].length * this.cellWidth + this.indent,
+                previousBockWidth = this.dateArray[centerIndex - 1].length * this.cellWidth + this.indent,
                 newBlockWidth;
 
             this.dateArray.unshift(Schedule[getterArray](date));
-            this.dateArray[0].time = Schedule[getterEquals](date);
+            this.dateArray[0].time = Schedule.equal(equalUnits, date);
             newBlockWidth = this.dateArray[0].length * this.cellWidth + this.indent;
             this.width += newBlockWidth;
             this.setAnimate(false);
@@ -187,15 +196,15 @@ export class App {
             }, 200);
         }
 
-        function right(getterDate, getterArray, getterEquals) {
+        function right(addUnits, getterArray, equalUnits) {
 
-            let date = Schedule[getterDate](this.dateArray[this.dateArray.length - 1][0], 1),
+            let date = Schedule.add(addUnits, this.dateArray[this.dateArray.length - 1][0], 1),
                 centerIndex      = Math.floor(this.dateArray.length / 2),
                 centerBlockWidth = this.dateArray[centerIndex].length * this.cellWidth + this.indent,
                 nextBockWidth    = this.dateArray[centerIndex + 1].length * this.cellWidth + this.indent;
 
             this.dateArray.push(Schedule[getterArray](date));
-            this.dateArray[this.dateArray.length - 1].time = Schedule[getterEquals](date);
+            this.dateArray[this.dateArray.length - 1].time = Schedule.equal(equalUnits, date);
             this.width += this.dateArray[this.dateArray.length - 1].length * this.cellWidth + this.indent;
             this.setAnimate(true);
             this.translateX -= (centerBlockWidth + nextBockWidth) / 2;
@@ -214,15 +223,15 @@ export class App {
         function choose(fn) {
             switch (this.period) {
                 case 'day':
-                    fn.call(this, 'getDate', 'getDayHoursArray', 'isThisDay');
+                    fn.call(this, 'days', 'getDayHoursArray', 'day');
                     break;
 
                 case 'week':
-                    fn.call(this, 'getWeek', 'getWeekArray', 'isThisWeek');
+                    fn.call(this, 'weeks', 'getWeekArray', 'isoWeek');
                     break;
 
                 case 'month':
-                    fn.call(this, 'getMonth', 'getMonthArray', 'isThisMonth');
+                    fn.call(this, 'months', 'getMonthArray', 'month');
                     break;
             }
         }
@@ -247,43 +256,42 @@ export class App {
         let n = 0,
             date;
 
-        function inflate(getterDate, getterArray, getterEquals, limit = 8) {
-
+        function inflate(addUnits, getterArray, equalUnits, limit = 8) {
             let n = 0, date;
 
             this.dateArray.push(Schedule[getterArray](current));
-            this.dateArray[this.dateArray.length - 1].time = Schedule[getterEquals](current);
+            this.dateArray[this.dateArray.length - 1].time = Schedule.equal(equalUnits, current);
             this.width = this.dateArray[0].length * this.cellWidth + this.indent;
 
             while (this.width < this.screenWidth) {
                 n++;
 
-                date = Schedule[getterDate](current, -n);
+                date = Schedule.add(addUnits, current, -n);
                 this.dateArray.unshift(Schedule[getterArray](date));
-                this.dateArray[0].time = Schedule[getterEquals](date);
+                this.dateArray[0].time = Schedule.equal(equalUnits, date);
                 this.width += this.dateArray[0].length * this.cellWidth + this.indent;
 
-                date = Schedule[getterDate](current, n);
+                date = Schedule.add(addUnits, current, n);
                 this.dateArray.push(Schedule[getterArray](date));
-                this.dateArray[this.dateArray.length - 1].time = Schedule[getterEquals](date);
+                this.dateArray[this.dateArray.length - 1].time = Schedule.equal(equalUnits, date);
                 this.width += this.dateArray[this.dateArray.length - 1].length * this.cellWidth + this.indent;
 
                 if (n > limit) break;
             }
 
         }
-        
+
         switch (this.period) {
             case 'day':
-                inflate.call(this, 'getDate', 'getDayHoursArray', 'isThisDay');
+                inflate.call(this, 'days', 'getDayHoursArray', 'day');
                 break;
-            
+
             case 'week':
-                inflate.call(this, 'getWeek', 'getWeekArray', 'isThisWeek');
+                inflate.call(this, 'weeks', 'getWeekArray', 'isoWeek');
                 break;
-            
+
             case 'month':
-                inflate.call(this, 'getMonth', 'getMonthArray', 'isThisMonth', 4);
+                inflate.call(this, 'months', 'getMonthArray', 'month', 4);
                 break;
         }
 
@@ -294,6 +302,11 @@ export class App {
 
         this.translateX = (this.screenWidth - this.width + this.panelWidth) / 2;
         return this;
+    }
+    
+    // todo: for test
+    random() {
+        return Math.random();
     }
     
 }

@@ -12,10 +12,9 @@
   background-color: $yellow;
   border-radius: $button-border-radius;
 
-  @include material-animation-fast-out-slow-in;
-
   &:hover {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    @include material-animation-default;
     .bar__drag {
       color: rgba(255, 255, 255, .5);
     }
@@ -53,7 +52,7 @@
     font-size: 30px;
     color: rgba(255, 255, 255, .0);
 
-    @include material-animation-fast-out-slow-in;
+    @include material-animation-default;
 
     &:hover {
       color: rgba(255, 255, 255, 1) !important;

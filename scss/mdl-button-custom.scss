@@ -48,7 +48,6 @@
     color: $gray25;
 
     &:active {
-      //background-color: $gray65 !important;
     }
 
     &:hover {
@@ -117,5 +116,40 @@
   }
 
   & .mdl-button__ripple-container {
+  }
+}
+
+// FABs
+.mdl-button--fab {
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24) !important;
+
+  & .material-icons {
+  }
+
+  &.mdl-button--mini-fab {
+  }
+
+  & .mdl-button__ripple-container {
+  }
+
+  &:active {
+  }
+
+  &:focus:not(:active) {
+  }
+
+  &.mdl-button--colored {
+
+    &:hover {
+    }
+
+    &:focus:not(:active) {
+    }
+
+    &:active {
+    }
+
+    & .mdl-ripple {
+    }
   }
 }
