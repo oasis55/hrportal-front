@@ -1,0 +1,12 @@
+<template>
+    <div class="bar"
+         if.bind=""
+         class.bind="(level1.time < 0 ?
+                      'bar--past schedule-color__past_' + employer.colorCode :
+                      'schedule-color__' + employer.colorCode)">
+        <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"
+             if.bind=""></div>
+        <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"
+             if.bind=""></div>
+    </div>
+</template>
