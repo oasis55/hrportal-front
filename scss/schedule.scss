@@ -201,6 +201,13 @@
     }
   }
 
+  &__ctrl {
+    z-index: 10;
+    display: inline-block;
+    position: fixed;
+    bottom: $indent * 1.25;
+    right: $indent * 1.25;
+  }
   &__fab {
     z-index: 15;
     position: fixed;

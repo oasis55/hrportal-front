@@ -5,13 +5,14 @@ import $      from 'jquery'
 import _      from 'lodash'
 
 export class Shedule {
-    
+
     date                = new Date();
     selectedDate        = new Date();
     isCurrentDate       = true;
+    selectedTime        = 0;
     period              = null;
     dateArray           = [];
-    employersJSONArray  = [
+    employersArray      = [
         {
             id: 1,
             name: 'Салон «Московский»',
@@ -80,9 +81,9 @@ export class Shedule {
             ]
         }
     ];
+    shiftArray          = [];
     dateFormat          = HRDate.dateFormat;
     events              = null;
-    event               = null;
 
     indent              = 16;
     cellWidth           = null;
@@ -99,13 +100,18 @@ export class Shedule {
 
     schedule;
     $schedule;
+    addDialog;
+
+    newWorkShiftData    = false;
+    showDayBars         = false;
+    showAllBars         = false;
 
     constructor() {
 
         this.events = new Events;
         this.events.loadData();
 
-        _.forEach(this.employersJSONArray, function(level1) {
+        _.forEach(this.employersArray, function(level1) {
             _.forEach(level1.employers, function (level2) {
                 level2.colorCode = Color.getColorIndex(level2.role);
             });
@@ -119,18 +125,19 @@ export class Shedule {
         this.screenHeight = this.$schedule.height();
         this.setPeriod();
 
-        $(window).bind('resize', $.proxy(this.resize, this));
+        $(window).bind('resize.schedule', ::this.resize);
     }
 
     detached() {
-        $(window).unbind('resize', this.resize);
+        $(window).unbind('resize.schedule');
     }
 
     resize() {
         this.screenWidth = this.$schedule.width();
         this.screenHeight = this.$schedule.height();
         this
-            .inflate()
+            // todo: Оптимизировать вызов inflate. Наполнение нужно, если размеры окна больше текущего наполнения
+            // .inflate(this.selectedDate)
             .setAnimate(true)
             .toCenter();
         return this;
@@ -181,6 +188,7 @@ export class Shedule {
                 newBlockWidth;
 
             this.selectedDate = this.dateArray[centerIndex - 1][0];
+            this.selectedTime = HRDate.time(equalUnits, this.selectedDate);
             this.dateArray.unshift(HRDate[getterArray](date));
             this.dateArray[0].time = HRDate.time(equalUnits, date);
             newBlockWidth = this.dateArray[0].length * this.cellWidth + this.indent;
@@ -207,6 +215,7 @@ export class Shedule {
                 nextBockWidth    = this.dateArray[centerIndex + 1].length * this.cellWidth + this.indent;
 
             this.selectedDate = this.dateArray[centerIndex + 1][0];
+            this.selectedTime = HRDate.time(equalUnits, this.selectedDate);
             this.dateArray.push(HRDate[getterArray](date));
             this.dateArray[this.dateArray.length - 1].time = HRDate.time(equalUnits, date);
             this.width += this.dateArray[this.dateArray.length - 1].length * this.cellWidth + this.indent;
@@ -244,12 +253,13 @@ export class Shedule {
 
         if (step === 1)  choose.call(this, right);
         if (step === -1) choose.call(this, left);
-
+        
         return this;
     }
 
     inflate(current = this.date) {
         this.dateArray = [];
+        this.showDayBars = this.showAllBars = false;
         this.width = 0;
 
         let n = 0,
@@ -277,20 +287,22 @@ export class Shedule {
 
                 if (n > limit) break;
             }
-
         }
-
+        
         switch (this.period) {
             case 'day':
                 inflate.call(this, 'days', 'getDayHoursArray', 'day');
+                this.showDayBars = true;
                 break;
 
             case 'week':
                 inflate.call(this, 'weeks', 'getWeekArray', 'isoWeek');
+                this.showAllBars = true;
                 break;
 
             case 'month':
                 inflate.call(this, 'months', 'getMonthArray', 'month', 4);
+                this.showAllBars = true;
                 break;
         }
 
@@ -298,7 +310,6 @@ export class Shedule {
     }
 
     toCenter() {
-
         this.translateX = (this.screenWidth - this.width + this.panelWidth) / 2;
         return this;
     }
@@ -311,6 +322,13 @@ export class Shedule {
         this.selectedDate = this.date;
         this.isCurrentDate = true;
     }
+    
+    openAddEventDialog(group, employer) {
+        this.newWorkShiftData = {
+            group: group,
+            employer: employer
+        };
+    }
 
     setAnimate(value) {
         this.animate = value;
@@ -318,8 +336,7 @@ export class Shedule {
     }
 
     getEvent(userId, date) {
-        this.event = this.events.getEvent(userId, date);
-        return this.event;
+        return this.events.getEvent(userId, date);
     }
     
     checkCurrentDate() {

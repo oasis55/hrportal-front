@@ -8,13 +8,13 @@ export class StickTopCustomAttribute {
     }
 
     attached() {
-        $(window).bind('scroll', $.proxy(this.scroll, this));
+        $(document).on('scroll.stick', ::this.scroll);
         this.top = this.$element.offset().top;
         this.position = this.$element.css('position');
     }
 
     detached() {
-        $(window).unbind('scroll', this.scroll);
+        $(document).off('scroll.stick');
     }
 
     scroll() {

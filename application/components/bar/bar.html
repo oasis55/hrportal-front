@@ -1,12 +1,20 @@
 <template>
+
     <div class="bar"
-         if.bind=""
-         class.bind="(level1.time < 0 ?
-                      'bar--past schedule-color__past_' + employer.colorCode :
-                      'schedule-color__' + employer.colorCode)">
+         ref="bar"
+         show.bind="show"
+         style.bind="'left:' + left + 'px' + '; ' + 'right:' + right + 'px'"
+         class.bind="(data.time < 0 ?'bar--past schedule-color__past_' + data.colorCode : 'schedule-color__' + data.colorCode)
+                     + ' ' +
+                     (data.scalable ? 'bar--moving': '')
+                     + ' ' +
+                     (data.period === 'month' ? 'bar--wide' : '')">
+
         <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"
-             if.bind=""></div>
+             if.bind="data.scalable && data.time >= 0"></div>
         <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"
-             if.bind=""></div>
+             if.bind="data.scalable && data.time >= 0"></div>
+
     </div>
+
 </template>

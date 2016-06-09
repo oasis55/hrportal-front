@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="ru" ng-app="hrportal">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="../css/index.min.css">
     <title>Schedule</title>
 
-    <script src="../node_modules/angular/angular.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="../node_modules/material-design-lite/material.min.js"></script>
 
 </head>
-<body ng-controller="mainCtrl">
+<body>
 
 <div style="background-color: #536d79; height: 69px"></div>
 
@@ -1184,9 +1182,8 @@
         <div class="conflict">
             <div class="conflict__row">
                 <div class="conflict__col_time">
-                    <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="a1 = !a1">
-                        <i class="mdi mdi-chevron-down color__color--red"
-                           ng-class="{'mdi-chevron-down': !a1, 'mdi-chevron-right': a1}"></i>
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="mdi mdi-chevron-down color__color--red"></i>
                     </button>
                     <div class="conflict__schedule color__color--red">12:00 − 14:00</div>
                 </div>
@@ -1199,7 +1196,7 @@
                     </div>
                 </div>
                 </div>
-            <div class="conflict__group" ng-show="!a1">
+            <div class="conflict__group">
                 <div class="conflict__row_inner">
                     <div class="conflict__col_time">
                         <div class="conflict__schedule">

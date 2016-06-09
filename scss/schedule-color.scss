@@ -3,9 +3,13 @@
   @for $i from 1 through 100 {
     &__#{$i} {
       background-color: hsl(360 * $i / 100, 50, 65) !important;
-      &:hover {
+      -webkit-tap-highlight-color: hsl(360 * $i / 100, 50, 65) !important;
+      &:hover, &:active {
         background-color: hsl(360 * $i / 100, 50, 50) !important;
       }
+    }
+    &__color_#{$i} {
+      background-color: hsl(360 * $i / 100, 50, 65) !important;
     }
     &__past_#{$i} {
       background-color: hsl(360 * $i / 100, 50, 75) !important;

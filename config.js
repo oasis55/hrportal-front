@@ -2,10 +2,9 @@ System.config({
   defaultJSExtensions: true,
   transpiler: "babel",
   babelOptions: {
-    "optional": [
-      "es7.decorators",
-      "es7.classProperties"
-    ]
+      "ignore": ["github:*", "npm:*"],
+      "stage": 0,
+      "optional": []
   },
   paths: {
     "*": "application/*",

@@ -1,5 +1,4 @@
 import moment from 'moment'
-// import _ from 'lodash'
 
 export default class Events {
 
@@ -7,9 +6,9 @@ export default class Events {
     // {
     //     id: 1,
     //     userId: 1,
-    //     dateStart: new Date(),
-    //     dateEnd: new Date()
-    // };
+    //     startDate: new Date(),
+    //     endDate: new Date()
+    // }
 
     events = [];
     conflicts = [];
@@ -17,14 +16,15 @@ export default class Events {
     constructor() {}
 
     getEvent(userId, date) {
+        console.log('getEvent', userId, date);
         return this.events.find((element) => {
-            return element.userId === userId && moment(element.dateStart).isSame(date, 'day');
+            return element.userId === userId && moment(element.startDate).isSame(date, 'day');
         });
     }
 
     getConflict(placeId, date) {}
     
-    loadData(dateStart, dateEnd) {
+    loadData(startDate, endDate) {
         this.events = Events.__for_testing_getEvents();
     }
     
@@ -48,18 +48,11 @@ export default class Events {
             event = {
                 id: id,
                 userId: getRandomInt(1, 10),
-                dateStart: moment(dateStart).hour(getRandomInt(1, 12)).toDate(),
-                dateEnd: moment(dateStart).hour(getRandomInt(13, 23)).toDate()
-            }
+                startDate: moment(dateStart).hour(getRandomInt(7, 10)).toDate(),
+                endDate: moment(dateStart).hour(getRandomInt(15, 20)).toDate()
+            };
 
-            if(!events.find((element) => {
-                return
-                    element.userId === event.userId &&
-                    moment(element.dateStart).isSame(event.dateStart, 'day');
-            })) {
-                events.push(event);
-            }
-
+            events.push(event);
         }
 
         return events;

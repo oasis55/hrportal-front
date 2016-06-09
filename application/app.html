@@ -1,3 +1,4 @@
 <template>
-    <compose view-model="components/schedule/schedule"></compose >
+    <!--<button click.trigger="show = true">remove</button>-->
+    <compose if.bind="!show" view-model="components/schedule/schedule"></compose>
 </template>

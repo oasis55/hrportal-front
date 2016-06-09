@@ -11,13 +11,22 @@
   left:   $indent * 3/4;
   background-color: $yellow;
   border-radius: $button-border-radius;
+  user-select: none;
 
   &:hover {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    @include material-animation-default;
+    transition: background-color 0.2s, box-shadow 0.2s;
     .bar__drag {
       color: rgba(255, 255, 255, .5);
     }
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: - $indent * 3/4;
+    left: - $indent * 3/4;
+    right: - $indent * 3/4;
+    bottom: - $indent * 3/4;
   }
 
   &--small {
@@ -34,15 +43,22 @@
     left: $indent * .3;
   }
   &--add {
-    cursor: default;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
     color: $white;
+    opacity: 0;
+
+    //@include material-animation-default;
+
     &:hover {
+      opacity: 1;
       box-shadow: none;
     }
+  }
+  &--moving {
+    cursor: move;
   }
 
   &__drag {
@@ -59,10 +75,10 @@
     }
 
     &--left {
-      left: -2px;
+      left: -4px;
     }
     &--right {
-      right: -2px;
+      right: -4px;
     }
   }
 

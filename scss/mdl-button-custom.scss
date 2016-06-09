@@ -47,11 +47,13 @@
     background-color: $gray96;
     color: $gray25;
 
-    &:active {
+    &:hover {
+      background-color: $white !important;
     }
 
-    &:hover {
-      background-color: $gray96;
+    &:active {
+      color: $white !important;
+      background-color: $gray65 !important;
     }
 
     &:focus:not(:active) {
