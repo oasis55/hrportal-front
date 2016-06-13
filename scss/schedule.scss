@@ -205,8 +205,27 @@
     z-index: 10;
     display: inline-block;
     position: fixed;
+
+    &--top {
+      top: $indent * 1.25;
+    }
+    &--left {
+      left: $indent * 1.25 + $schedulePanelWidth;
+    }
+    &--right {
+      right: $indent * 1.25;
+    }
+    &--bottom {
+      bottom: $indent * 1.25;
+    }
+
+  }
+  &__ctrl_left {
+    z-index: 10;
+    display: inline-block;
+    position: fixed;
     bottom: $indent * 1.25;
-    right: $indent * 1.25;
+    left: $indent * 1.25;
   }
   &__fab {
     z-index: 15;

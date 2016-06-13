@@ -1,0 +1,73 @@
+<template>
+    <require from="../bar/bar"></require>
+
+    <dialog class="schedule-dialog schedule-dialog--850 mdl-dialog" ref="dialog">
+        <button class="schedule-dialog__btn_close mdl-button mdl-js-button mdl-button--icon"
+                click.trigger="close()">
+            <i class="material-icons">close</i>
+        </button>
+        <h4 class="mdl-dialog__title">
+            <span if.bind="!data.shift">Добавление</span><span if.bind="data.shift">Редактирование</span> смены
+        </h4>
+        <div class="mdl-dialog__content">
+            <div class="shift">
+                <div class="shift__cell_full">
+                    <div class="shift__text">${data.place.name}</div>
+                    <br>
+                    <div class="shift__text mdl-typography--caption shift__sub_title">Сотрудник</div>
+                    <div class="shift__row_time shift__row_time--left">
+                        <div class="shift__left">
+                            <div class="shift__user_pic schedule-color__color_${data.employer.colorCode}"></div>
+                        </div>
+                        <div class="shift__right">
+                            <div class="shift__name">${data.employer.name}</div>
+                            <div class="shift__position">
+                                <div class="shift__post">${data.employer.role}</div>
+                                <div class="shift__info" style="display: none">
+                                    <span class="color__color--red">42</span>&nbsp;/&nbsp;<span class="color__color--gray55">40</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shift__cell" if.bind="data">
+                    <div class="shift__text">${dateFormat(data.date, 'D MMMM, dddd')}</div>
+                    <br>
+                    <div class="shift__text shift__marks shift__sub_title">
+                        <div class="shift__mark"
+                             repeat.for="dateObj of dateArray"
+                             class.bind="dateObj.active ? '' : 'shift__mark_passive'">
+                            <span>${dateObj.date.getHours()}<sup>00</sup></span>
+                        </div>
+                    </div>
+                    <div class="shift__row_time">
+                        <div class="shift__cell_time" repeat.for="dateObj of dateArray"></div>
+                        <bar config.bind="{
+                                    scalable:  true,
+                                    time:      0,
+                                    startDate: dateArray[0].date,
+                                    endDate:   dateArray[dateArray.length - 1].date,
+                                    cells:     dateArray.length,
+                                    cellWidth: cellWidth,
+                                    colorCode: data.employer.colorCode,
+                                    data:      barData
+                                 }"
+                             data.bind="barData"
+                             containerless></bar>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <p style="display: none">
+                Внимание! У сотрудника овертайм <span class="color__color--red">2 часа</span>.
+            </p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button" disabled.bind="disabled" click.trigger="save()">СОХРАНИТЬ</button>
+            <button type="button" class="mdl-button" click.trigger="delete()">УДАЛИТЬ</button>
+            <!--<button type="button" class="mdl-button" click.trigger="close()">ОТМЕНИТЬ</button>-->
+            <!--<button type="button" class="mdl-button schedule-dialog__btn_left">СБРОСИТЬ</button>-->
+        </div>
+    </dialog>
+</template>

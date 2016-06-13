@@ -1,94 +1,28 @@
 <template>
-
-    <require from="../test"></require>
-
     <require from="../stick-top"></require>
+    <require from="../work-shift-dialog/work-shift-dialog"></require>
+    <require from="../conflict-shift-dialog/conflict-shift-dialog"></require>
     <require from="../bar/bar"></require>
-    <require from="../new_work_shift_dialog/newWorkShiftDialog"></require>
+    <require from="../bar-size"></require>
 
-    <style>
-        .mdl-layout__header {
-            position: relative;
-            z-index: 100;
-            background-color: #536d79;
-        }
-        .mdl-navigation__link {
-            position: relative;
-            text-transform: uppercase;
-        }
-        .active:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 2px;
-            background-color: white;
-        }
-    </style>
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">Календарь</span>
-            <div class="mdl-layout-spacer"></div>
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href=""
-                   class.bind="period === 'day' && 'active'"
-                   click.trigger="setPeriod('day')">
-                    День
-                </a>
-                <a class="mdl-navigation__link" href=""
-                   class.bind="period === 'week' && 'active'"
-                   click.trigger="setPeriod('week')">
-                    Неделя
-                </a>
-                <a class="mdl-navigation__link" href=""
-                   class.bind="period === 'month' && 'active'"
-                   click.trigger="setPeriod('month')">
-                    Месяц
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="schedule"
-         class.bind="(period === 'day' && 'schedule__days')   ||
-                     (period === 'week' && 'schedule__weeks') ||
-                     (period === 'month' && 'schedule__months')"
-         ref="schedule">
-        <div class="schedule__ctrl">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--white"
-                    hide.bind="isCurrentDate"
-                    click.trigger="toCurrent()">
-                <i class="mdi"
-                   class.bind="selectedTime > 0 ? 'mdi-chevron-double-left' : 'mdi-chevron-double-right'"></i>
-            </button>
-            &nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--white"
-                    click.trigger="move(-1)">
-                <i class="mdi mdi-chevron-left"></i>
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--white"
-                    click.trigger="move(1)">
-                <i class="mdi mdi-chevron-right"></i>
-            </button>
-        </div>
+    <div class="schedule" class.bind="periodClass" ref="schedule">
         <div class="schedule-panel">
             <div class="schedule-panel__head">
                 <button class="schedule-panel__btn_all">Все салоны</button>
             </div>
-            <div repeat.for="group of employersArray">
+            <div repeat.for="place of employersArray">
                 <div class="schedule-panel__item_group"
-                     click.trigger="group.hide = !group.hide">
+                     click.trigger="place.hide = !place.hide">
                     <div class="schedule-panel__left">
-                        <span class="mdi" class.bind="group.hide ? 'mdi-chevron-right' : 'mdi-chevron-down'"></span>
+                        <span class="mdi" class.bind="place.hide ? 'mdi-chevron-right' : 'mdi-chevron-down'"></span>
                     </div>
                     <div class="schedule-panel__right">
-                        <div class="schedule-panel__name">${group.name}</div>
+                        <div class="schedule-panel__name">${place.name}</div>
                     </div>
                 </div>
                 <div class="schedule-panel__item"
-                     show.bind="!group.hide"
-                     repeat.for="employer of group.employers">
+                     repeat.for="employer of place.employers"
+                     show.bind="!place.hide">
                     <div class="schedule-panel__left">
                         <div class="schedule-panel__user_pic"
                              class.bind="'schedule-color__color_' + employer.colorCode"></div>
@@ -105,6 +39,30 @@
                 </div>
             </div>
         </div>
+        <div class="schedule__ctrl schedule__ctrl--right schedule__ctrl--bottom">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--white"
+                    hide.bind="isCurrentDate"
+                    click.trigger="toCurrent()">
+                <i class="mdi"
+                   class.bind="selectedTime > 0 ? 'mdi-chevron-double-left' : 'mdi-chevron-double-right'"></i>
+            </button>
+            &nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--white"
+                    click.trigger="move(-1)">
+                <i class="mdi mdi-chevron-left"></i>
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--white"
+                    click.trigger="move(1)">
+                <i class="mdi mdi-chevron-right"></i>
+            </button>
+        </div>
+        <!--<div class="schedule__ctrl schedule__ctrl&#45;&#45;left schedule__ctrl&#45;&#45;bottom">-->
+            <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;fab mdl-button&#45;&#45;mini-fab mdl-button&#45;&#45;white"-->
+                    <!--class.bind="delete ? 'mdl-button__selected&#45;&#45;red' : ''">-->
+                <!--<i class="mdi mdi-delete-sweep"-->
+                   <!--click.trigger="deleteTrigger()"></i>-->
+            <!--</button>-->
+        <!--</div>-->
         <div class="schedule__timeline" stick-top>
             <div class="schedule__container"
                  class.bind="animate && 'schedule__animation'"
@@ -116,13 +74,13 @@
                     <div class="schedule__title">
                         <div class="schedule__date">
                             <span if.bind="period === 'day'">
-                                ${dateFormat(level1[0], 'D MMMM, dddd')}
+                                ${dateFormat(level1.dateArray[0].date, 'D MMMM, dddd')}
                             </span>
                             <span if.bind="period === 'week'">
-                                ${dateFormat(level1[0], 'D MMMM')} – ${dateFormat(level1[6], 'D MMMM')}
+                                ${dateFormat(level1.dateArray[0].date, 'D MMMM')} – ${dateFormat(level1.dateArray[6].date, 'D MMMM')}
                             </span>
                             <span if.bind="period === 'month'">
-                                ${dateFormat(level1[0], 'MMMM')}
+                                ${dateFormat(level1.dateArray[0].date, 'MMMM')}
                             </span>
                         </div>
                         <div class="schedule__today"
@@ -135,11 +93,11 @@
                     <div class="schedule__separator"></div>
                     <div class="schedule__marks">
                         <div class="schedule__mark"
-                             repeat.for="level2 of level1"
+                             repeat.for="level2 of level1.dateArray"
                              class.bind="level2.active ? '' : 'schedule__mark_passive'">
-                            <span if.bind="period === 'day'">${level2.getHours()}<sup>00</sup></span>
-                            <span if.bind="period === 'week'">${dateFormat(level2, 'ddd, D')}</span>
-                            <span if.bind="period === 'month'">${dateFormat(level2, 'D')}</span>
+                            <span if.bind="period === 'day'">${level2.date.getHours()}<sup>00</sup></span>
+                            <span if.bind="period === 'week'">${dateFormat(level2.date, 'ddd, D')}</span>
+                            <span if.bind="period === 'month'">${dateFormat(level2.date, 'D')}</span>
                         </div>
                     </div>
                 </div>
@@ -149,71 +107,84 @@
              class.bind="animate && 'schedule__animation'"
              css.bind="{'transform': 'translateX(' + translateX + 'px)'}">
             <div class="schedule__row_group"
-                 repeat.for="group of employersArray">
+                 repeat.for="place of employersArray">
                 <div class="schedule__group"
                      repeat.for="level1 of dateArray"
                      class.bind="level1.time < 0 && 'schedule__group_past'">
                     <div class="schedule__layout">
                         <div class="schedule__row_conflict">
                             <div class="schedule__layout_cell"
-                                 repeat.for="level2 of level1"></div>
+                                 repeat.for="level2 of level1.dateArray">
+                                <div class="bar bar--small"
+                                     if.bind="period !== 'day' &&
+                                              level1.time >= 0 &&
+                                              getConflict(place.id, level2.date)"
+                                     click.trigger="openConflictShiftDialog(place, level2.date)"></div>
+                            </div>
+
+                            <div class="bar bar--small"
+                                 if.bind="period === 'day' &&
+                                          level1.time >= 0"
+                                 bar-size.bind="{
+                                    startDate: level1.dateArray[0].date,
+                                    endDate:   level1.dateArray[level1.dateArray.length - 1].date,
+                                    cellWidth: cellWidth,
+                                    data: getConflict(place.id, level1.dateArray[0].date)
+                                 }"
+                                 click.trigger="openConflictShiftDialog(place, level1.dateArray[0].date)"></div>
+
                         </div>
                         <div class="schedule__row"
-                             show.bind="!group.hide"
-                             repeat.for="employer of group.employers">
+                             show.bind="!place.hide"
+                             repeat.for="employer of place.employers">
                             <div class="schedule__layout_cell"
-                                 repeat.for="level2 of level1">
+                                 repeat.for="level2 of level1.dateArray">
 
-                                <!--<bar if.bind="showAllBars"-->
-                                     <!--data.bind="{-->
-                                        <!--scalable:  false,-->
-                                        <!--disable:   period === 'day',-->
-                                        <!--period:    period,-->
-                                        <!--time:      level1.time,-->
-                                        <!--colorCode: employer.colorCode,-->
-                                        <!--data:      getEvent(employer.id, level2)-->
-                                     <!--}"></bar>-->
-
-                                <!--<div class="bar"-->
-                                     <!--if.bind="showAllBars && getEvent(employer.id, level2)"-->
-                                     <!--class.bind="(level1.time < 0 ?-->
-                                                  <!--'bar&#45;&#45;past schedule-color__past_' + employer.colorCode :-->
-                                                  <!--'schedule-color__' + employer.colorCode) + ' ' +-->
-                                                 <!--(period === 'month' ? 'bar&#45;&#45;wide' : '')">-->
-                                <!--</div>-->
-                                <!--<div class="bar bar&#45;&#45;add"-->
-                                     <!--if.bind="showAllBars && !getEvent(employer.id, level2) && level1.time >= 0"-->
-                                     <!--click.trigger="openAddEventDialog(group, employer)"-->
-                                     <!--class.bind="('schedule-color__fade_' + employer.colorCode) + ' ' +-->
-                                                 <!--(period === 'month' ? 'bar&#45;&#45;wide' : '')">-->
-                                    <!--<i class="mdi mdi-plus"></i>-->
-                                <!--</div>-->
+                                <div class="bar"
+                                     if.bind="inflated &&
+                                              period !== 'day' &&
+                                              getShift(employer.id, level2.date)"
+                                     click.trigger="openNewWorkShiftDialog(place, employer, level2.date, getShift(employer.id, level2.date))"
+                                     class.bind="(level1.time < 0 ?
+                                                  'bar--past schedule-color__past_' + employer.colorCode :
+                                                  'schedule-color__' + employer.colorCode) + ' ' +
+                                                 (period === 'month' ? 'bar--wide' : '')"></div>
+                                <div class="bar bar--add"
+                                     if.bind="inflated &&
+                                              period !== 'day' &&
+                                              level1.time >= 0 &&
+                                              !delete &&
+                                              !getShift(employer.id, level2.date)"
+                                     click.trigger="openNewWorkShiftDialog(place, employer, level2.date)"
+                                     class.bind="('schedule-color__fade_' + employer.colorCode) + ' ' +
+                                                 (period === 'month' ? 'bar--wide' : '')">
+                                    <i class="mdi mdi-plus"></i>
+                                </div>
 
                             </div>
 
-                            <bar if.bind="showDayBars"
-                                 data.bind="{
+                            <bar if.bind="inflated && period === 'day'"
+                                 config.bind="{
                                     scalable:  true,
-                                    disable:   period !== 'day',
-                                    period:    period,
                                     time:      level1.time,
-                                    startDate: level1[0],
-                                    endDate:   level1[level1.length - 1],
-                                    cells:     level1.length,
+                                    startDate: level1.dateArray[0].date,
+                                    endDate:   level1.dateArray[level1.dateArray.length - 1].date,
+                                    cells:     level1.dateArray.length,
                                     cellWidth: cellWidth,
-                                    colorCode: employer.colorCode,
-                                    data:      getEvent(employer.id, level1[0])
-                                 }"></bar>
-
-                            </div>
+                                    colorCode: employer.colorCode
+                                 }"
+                                 data.bind="getShift(employer.id, level1.dateArray[0].date)"
+                                 containerless></bar>
 
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="schedule__now" style.bind="'left: ' + markCurrentLeft + 'px'"></div>
         </div>
     </div>
 
-    <new-work-shift-dialog data.bind="newWorkShiftData"></new-work-shift-dialog>
+    <work-shift-dialog data.bind="newWorkShiftData"></work-shift-dialog>
+    <conflict-shift-dialog data.bind="conflictShiftData"></conflict-shift-dialog>
 
 </template>

@@ -13,6 +13,12 @@
     margin-right: auto;
   }
 
+  &__btn_close {
+    position: absolute;
+    right: $indent * 2;
+    top: $indent * 2;
+  }
+
   .mdl-dialog {
     &__title {
       @include typo-title;

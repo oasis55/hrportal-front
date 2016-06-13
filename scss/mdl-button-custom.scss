@@ -4,9 +4,6 @@
 
 .mdl-button {
 
-  &:hover {
-  }
-
   &:focus:not(:active) {
     background-color: transparent;
   }
@@ -77,6 +74,13 @@
       background-color: $red;
     }
   }
+
+  &.mdl-button__selected {
+    &--red, &--red:hover, &--red:active {
+      color: $white !important;
+      background-color: $red !important;
+    }
+  }
 }
 
 // Raised buttons
@@ -91,67 +95,14 @@
   }
 
   &.mdl-button--colored {
-
-    &:hover {
-    }
-
     &:active {
       background-color: $gray55;
     }
-
-    &:focus:not(:active) {
-    }
-
-    & .mdl-ripple {
-    }
-  }
-}
-
-.mdl-button--icon {
-
-  & .material-icons {
   }
 
-  &.mdl-button--mini-icon {
-    & .material-icons {
-    }
-  }
-
-  & .mdl-button__ripple-container {
-  }
 }
 
 // FABs
 .mdl-button--fab {
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24) !important;
-
-  & .material-icons {
-  }
-
-  &.mdl-button--mini-fab {
-  }
-
-  & .mdl-button__ripple-container {
-  }
-
-  &:active {
-  }
-
-  &:focus:not(:active) {
-  }
-
-  &.mdl-button--colored {
-
-    &:hover {
-    }
-
-    &:focus:not(:active) {
-    }
-
-    &:active {
-    }
-
-    & .mdl-ripple {
-    }
-  }
 }

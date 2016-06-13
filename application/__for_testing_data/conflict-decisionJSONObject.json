@@ -1,0 +1,39 @@
+{
+  "id": 1,
+  "conflictId": 1,
+  "employers": [
+    {
+      "id": 1,
+      "priority": 0,
+      "name": "Петр Петров",
+      "code": 1,
+      "description": "выходной",
+      "shifts": {
+        "total": 40,
+        "planned": 36
+      }
+    },
+    {
+      "id": 2,
+      "priority": 1,
+      "name": "Иван Иванов",
+      "code": 2,
+      "description": "4 часа овертайм",
+      "shifts": {
+        "total": 40,
+        "planned": 44
+      }
+    },
+    {
+      "id": 3,
+      "priority": 3,
+      "name": "Владимир Пак",
+      "code": 3,
+      "description": "отгул",
+      "shifts": {
+        "total": 40,
+        "planned": 38
+      }
+    }
+  ]
+}

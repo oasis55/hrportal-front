@@ -31,9 +31,10 @@ class BarEvents {
     }
 
     onStart(event) {
-        if (event.currentTarget.__object.data.scalable &&
-            event.currentTarget.__object.data.time >= 0) {
-            console.log('onStart');
+        if (event.currentTarget.__object &&
+            event.currentTarget.__object.config.scalable &&
+            event.currentTarget.__object.config.time >= 0) {
+            // console.log('onStart');
             this.currentTarget = event.currentTarget;
 
             let $target = $(event.target),
@@ -59,11 +60,11 @@ class BarEvents {
 
     onMove(event) {
         if (this.currentTarget) {
-            console.log('onMove');
+            // console.log('onMove');
             event.preventDefault();
 
             let co = this.getCoordinates(event),
-                minBarWidth = this.currentTarget.__object.data.cellWidth * 4 - this.currentTarget.__object.minLeft *2;
+                minBarWidth = this.currentTarget.__object.config.cellWidth * 4 - this.currentTarget.__object.minLeft *2;
 
             function getLeft() {
                 let left = co.x - this.rowOffset.left - this.startCoordinates.left;
@@ -113,12 +114,24 @@ class BarEvents {
 
     onEnd(event) {
         if (this.currentTarget) {
-            console.log('onEnd');
+            // console.log('onEnd');
 
             this.currentTarget.__object.left -=
-                this.currentTarget.__object.left % this.currentTarget.__object.data.cellWidth - 4;
+                this.currentTarget.__object.left % this.currentTarget.__object.config.cellWidth - 4;
             this.currentTarget.__object.right -=
-                this.currentTarget.__object.right % this.currentTarget.__object.data.cellWidth - 4;
+                this.currentTarget.__object.right % this.currentTarget.__object.config.cellWidth - 4;
+
+            this.currentTarget.__object.data.startDate.setHours(
+                (this.currentTarget.__object.left - 4) / this.currentTarget.__object.config.cellWidth
+                + this.currentTarget.__object.config.startDate.getHours());
+
+            this.currentTarget.__object.data.endDate.setHours(
+                (4 - this.currentTarget.__object.right) / this.currentTarget.__object.config.cellWidth
+                + this.currentTarget.__object.config.endDate.getHours());
+
+            // for aurelia observer date:type bug
+            this.currentTarget.__object.data.startDate = new Date(this.currentTarget.__object.data.startDate);
+            this.currentTarget.__object.data.endDate = new Date(this.currentTarget.__object.data.endDate);
 
             this.currentTarget = null;
             this.targetType = 'bar';
@@ -166,23 +179,25 @@ class BarEvents {
 
 @customElement('bar')
 @bindable({
-    name: 'data',
+    name: 'config',
     defaultBindingMode: bindingMode.oneWay
 })
-export class Bar {
+@bindable({
+    name: 'data',
+    defaultBindingMode: bindingMode.twoWay
+})
+export class BarCustomElement {
 
-    data = {
+    config = {
         scalable: false,
-        disable: false,
         time: 0,
         startDate: 0,
         endDate: 0,
-        period: '',
         cells: 0,
         cellWidth: 0,
         colorCode: 0,
-        data: {}
     };
+    data;
     bar;
     $row;
     show     = false;
@@ -192,29 +207,28 @@ export class Bar {
     minRight = 4;
 
     attached() {
-        if (this.data.disable) return 0;
-        console.log('attached');
+        // console.log('attached');
 
         this.barEvents = new BarEvents();
         this.bar.__object = this;
 
-        if (this.data.data) {
+        if (this.data) {
 
             this.show = true;
 
-            if (this.data.scalable) {
-                this.$row = $(this.bar).parent().parent();
+            if (this.config.scalable) {
+                this.$row = $(this.bar).parent();
                 this.left =
-                    (this.data.data.startDate.getHours() - this.data.startDate.getHours()) * this.data.cellWidth + 4;
+                    (this.data.startDate.getHours() - this.config.startDate.getHours()) * this.config.cellWidth + 4;
                 this.right =
-                    (this.data.endDate.getHours() - this.data.data.endDate.getHours()) * this.data.cellWidth + 4;
+                    (this.config.endDate.getHours() - this.data.endDate.getHours()) * this.config.cellWidth + 4;
             }
         }
 
     }
 
     detached() {
-        console.log('detached');
+        // console.log('detached');
         if (this.barEvents) {
             this.barEvents.destructor();
         }

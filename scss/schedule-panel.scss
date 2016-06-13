@@ -55,7 +55,7 @@
     flex-shrink: 0;
     .mdi {
       $delta: ($schedulePanelUserPic - 24px) / 2;
-      margin: ($indent) ($indent + $delta) 0 ($indent*1.5 + $delta);
+      margin: $indent ($indent + $delta) 0 ($indent + $delta);
       font-size: 24px;
       color: $gray55;
     }

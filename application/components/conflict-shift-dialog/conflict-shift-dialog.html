@@ -1,0 +1,69 @@
+<template>
+    <dialog class="schedule-dialog mdl-dialog" ref="dialog">
+        <button class="schedule-dialog__btn_close mdl-button mdl-js-button mdl-button--icon"
+                click.trigger="close()">
+            <i class="material-icons">close</i>
+        </button>
+        <h4 class="mdl-dialog__title">Конфликт в расписании</h4>
+        <div class="mdl-dialog__content">
+            <p>
+                В салоне «<span class="color__color--red">Московский</span>» обнаружены проблемы в расписании на
+                <span class="color__color--red">${dateFormat(data.date, 'D MMMM, dddd')}</span>:
+            </p>
+            <div class="conflict">
+                <div repeat.for="conflict of conflictsArray">
+                    <div class="conflict__row">
+                        <div class="conflict__col_time">
+                            <button class="mdl-button mdl-js-button mdl-button--icon"
+                                    click.trigger="conflict.open = !conflict.open">
+                                <i class="mdi color__color--red"
+                                   class.bind="conflict.open ? 'mdi-chevron-down' : 'mdi-chevron-right'"></i>
+                            </button>
+                            <div class="conflict__schedule color__color--red">
+                                ${dateFormat(conflict.startDate, 'HH:mm')} − ${dateFormat(conflict.endDate, 'HH:mm')}
+                            </div>
+                        </div>
+                        <div class="conflict__col">
+                            <div class="conflict__col">
+                                <div class="conflict__text">${conflict.description}</div>
+                            </div>
+                            <div class="conflict__col_btn">
+                                <button class="mdl-button mdl-button--raised mdl-button--colored">Авторешение</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conflict__group"
+                         show.bind="conflict.open">
+                        <div class="conflict__row_inner"
+                             repeat.for="employer of conflict.decision.employers">
+                            <div class="conflict__col_time">
+                                <div class="conflict__schedule">
+                                    <span class.bind="employer.shifts.planned > employer.shifts.total ?
+                                                      'color__color--red' : 'color__color--green_soft'">
+                                        ${employer.shifts.planned}
+                                    </span>
+                                    &nbsp;/&nbsp;
+                                    <span class="color__color--gray65">${employer.shifts.total}</span>
+                                </div>
+                            </div>
+                            <div class="conflict__row">
+                                <div class="conflict__col">
+                                    <div class="conflict__col">${employer.name}</div>
+                                    <div class="conflict__col_description color__color--red">${employer.description}</div>
+                                </div>
+                                <div class="conflict__col_btn">
+                                    <button class="mdl-button mdl-button--raised mdl-button--green-soft">Выбрать</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button" disabled.bind="disabled" click.trigger="save()">СОХРАНИТЬ</button>
+            <!--<button type="button" class="mdl-button" click.trigger="close()">ОТМЕНИТЬ</button>-->
+            <!--<button type="button" class="mdl-button schedule-dialog__btn_left">СБРОСИТЬ</button>-->
+        </div>
+    </dialog>
+</template>

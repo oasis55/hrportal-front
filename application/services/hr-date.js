@@ -6,8 +6,10 @@ export default class HRDate {
         let array = [];
 
         for (let c = minHour; c <= maxHour; c++) {
-            array.push(moment(date).hour(c).toDate());
-            array[array.length - 1].active = (c >= startHour && c <= endHour);
+            array.push({
+                date: moment(date).hour(c).toDate(),
+                active: c >= startHour && c <= endHour
+            });
         }
 
         return array;
@@ -17,8 +19,10 @@ export default class HRDate {
         let array = [];
 
         for (let c = 1; c <= 7; c++) {
-            array.push(moment(date).isoWeekday(c).toDate());
-            array[array.length - 1].active = !(c === 6 || c === 7);
+            array.push({
+                date: moment(date).isoWeekday(c).toDate(),
+                active: !(c === 6 || c === 7)
+            });
         }
 
         return array;
@@ -28,9 +32,11 @@ export default class HRDate {
         let array = [];
 
         for (let c = 1, day; c <= moment(date).daysInMonth(); c++) {
-            array.push(moment(date).date(c).toDate());
-            day = array[array.length - 1].getDay();
-            array[array.length - 1].active = (day !== 0 && day !== 6);
+            day = moment(date).date(c).toDate();
+            array.push({
+                date: day,
+                active: (day !== 0 && day !== 6)
+            });
         }
 
         return array;

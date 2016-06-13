@@ -4,16 +4,16 @@
          ref="bar"
          show.bind="show"
          style.bind="'left:' + left + 'px' + '; ' + 'right:' + right + 'px'"
-         class.bind="(data.time < 0 ?'bar--past schedule-color__past_' + data.colorCode : 'schedule-color__' + data.colorCode)
+         class.bind="(config.time < 0 ?'bar--past schedule-color__past_' + config.colorCode : 'schedule-color__' + config.colorCode)
                      + ' ' +
-                     (data.scalable ? 'bar--moving': '')
+                     (config.scalable ? 'bar--moving': '')
                      + ' ' +
-                     (data.period === 'month' ? 'bar--wide' : '')">
+                     (config.period === 'month' ? 'bar--wide' : '')">
 
         <div class="bar__drag bar__drag--left mdi mdi-drag-vertical"
-             if.bind="data.scalable && data.time >= 0"></div>
+             if.bind="config.scalable && config.time >= 0"></div>
         <div class="bar__drag bar__drag--right mdi mdi-drag-vertical"
-             if.bind="data.scalable && data.time >= 0"></div>
+             if.bind="config.scalable && config.time >= 0"></div>
 
     </div>
 
