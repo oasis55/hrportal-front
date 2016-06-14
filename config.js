@@ -37,6 +37,7 @@ System.config({
     "genadis/aurelia-mdl": "github:genadis/aurelia-mdl@0.1.0",
     "jquery": "npm:jquery@2.2.4",
     "lodash": "npm:lodash@4.13.1",
+    "material-design-lite": "github:google/material-design-lite@1.1.3",
     "moment": "npm:moment@2.13.0",
     "github:aurelia/binding@0.11.4": {
       "aurelia-metadata": "github:aurelia/metadata@0.10.1",

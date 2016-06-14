@@ -48,6 +48,7 @@ export class Schedule {
 
     newWorkShiftData;
     conflictShiftData;
+    snackBarData;
 
     intervalId;
 

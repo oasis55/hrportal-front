@@ -22,7 +22,7 @@
   }
 
   &__item {
-    cursor: pointer;
+    //cursor: pointer;
     display: flex;
     height: $schedulePanelItemHeight;
     @include material-animation-fast-out-slow-in;
@@ -31,9 +31,9 @@
       background-color: $gray96;
     }
 
-    &:hover {
-      background-color: $gray96;
-    }
+    //&:hover {
+    //  background-color: $gray96;
+    //}
   }
   &__item_group {
     cursor: pointer;

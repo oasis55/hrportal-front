@@ -25,10 +25,14 @@
                         </div>
                         <div class="conflict__col">
                             <div class="conflict__col">
-                                <div class="conflict__text">${conflict.description}</div>
+                                <div class="conflict__col conflict__col_padding">${conflict.description}</div>
+                                <div class="conflict__col_description color__color--red">авторешение</div>
                             </div>
-                            <div class="conflict__col_btn">
-                                <button class="mdl-button mdl-button--raised mdl-button--colored">Авторешение</button>
+                            <div class="conflict__col_right">
+                                <!--<button class="mdl-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;colored">Авторешение</button>-->
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-${$index}">
+                                    <input type="checkbox" id="checkbox-${$index}" class="mdl-checkbox__input">
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -48,11 +52,19 @@
                             </div>
                             <div class="conflict__row">
                                 <div class="conflict__col">
-                                    <div class="conflict__col">${employer.name}</div>
+                                    <div class="conflict__col conflict__col_padding">${employer.name}</div>
                                     <div class="conflict__col_description color__color--red">${employer.description}</div>
                                 </div>
-                                <div class="conflict__col_btn">
-                                    <button class="mdl-button mdl-button--raised mdl-button--green-soft">Выбрать</button>
+                                <div class="conflict__col_right">
+                                    <!--<button class="mdl-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;green-soft">Выбрать</button>-->
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
+                                           for="option-${$parent.$index}-${$index}">
+                                        <input type="radio"
+                                               id="option-${$parent.$index}-${$index}"
+                                               class="mdl-radio__button"
+                                               name="options-${$parent.$index}"
+                                               value="1">
+                                    </label>
                                 </div>
                             </div>
                         </div>

@@ -13,7 +13,7 @@ gulp.task('sass', function () {
         .src('scss/index.scss')
         .pipe(sass()).on('error', sass.logError)
         .pipe(autoprefixer())
-        .pipe(minifyCss())
+        // .pipe(minifyCss())
         .pipe(rename('index.min.css'))
         .pipe(gulp.dest('css'));
 
