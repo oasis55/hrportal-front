@@ -9,26 +9,23 @@ import * as mdl from 'material-design-lite/material.min'
 })
 export class SnackBarCustomElement {
 
-    timeout = 5000;
-
     snack;
-    $snack;
     data;
-    
+
     bindingEngine;
     subscription;
-    
+
     constructor(bindingEngine) {
         this.bindingEngine = bindingEngine;
     }
 
     trigger() {
-        if(this.data) {
+        if (this.data) {
             let data = {
-                message: this.data.message,
-                timeout: this.timeout,
+                message:       this.data.message,
+                timeout:       this.data.timeout,
                 actionHandler: this.data.callback,
-                actionText: 'ОТМЕНИТЬ'
+                actionText:    this.data.actionText
             };
             this.snack.MaterialSnackbar.showSnackbar(data);
         }
@@ -36,7 +33,7 @@ export class SnackBarCustomElement {
 
     attached() {
         this.subscription =
-            this.bindingEngine.expressionObserver(this, 'data').subscribe(::this.trigger);
+            this.bindingEngine.expressionObserver(this, 'data').subscribe(this.trigger.bind(this));
 
         this.snack.MaterialSnackbar = new MaterialSnackbar(this.snack);
     }
@@ -45,5 +42,5 @@ export class SnackBarCustomElement {
         this.subscription.dispose();
         this.subscription = null;
     }
-    
+
 }
