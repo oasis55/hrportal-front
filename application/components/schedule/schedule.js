@@ -35,10 +35,10 @@ export class Schedule {
     dateArray           = [];
     employersArray      = [];
     // shiftArray          = [];
+    barsArray           = [];
 
     animate             = true;
     inflated            = false;
-    delete             = false;
 
     schedule;
     $schedule;
@@ -48,11 +48,12 @@ export class Schedule {
 
     newWorkShiftData;
     conflictShiftData;
-    snackBarData;
 
     intervalId;
 
     http;
+    
+    context             = this;
 
     constructor() {
         window.__s = this;
@@ -165,11 +166,6 @@ export class Schedule {
 
     setAnimate(value) {
         this.animate = value;
-        return this;
-    }
-
-    deleteTrigger() {
-        this.delete = !this.delete;
         return this;
     }
 
@@ -340,8 +336,9 @@ export class Schedule {
         return this;
     }
 
-    openNewWorkShiftDialog(place, employer, date, shift) {
+    openWorkShiftDialog(place, employer, date, shift) {
         this.newWorkShiftData = {
+            context: this,
             place: place,
             employer: employer,
             date: date,
@@ -360,8 +357,8 @@ export class Schedule {
         return this;
     };
 
-    getShift(userId, date) {
-        return this.eventsService.getShift(userId, date);
+    getShift(employerId, date) {
+        return this.eventsService.getShift(employerId, date);
     }
 
     getConflict(placeId, date) {

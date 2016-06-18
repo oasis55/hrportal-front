@@ -45,12 +45,9 @@
     text-align: right;
   }
   &__col_right {
-    padding: 0 $indent 0 ($indent * 1.5);
-    display: flex;
-    align-items: center;
-    label {
-      width: $indent;
-      height: $indent * 1.5;
+    padding: 0 $indent / 2 0 $indent * 1.5;
+    .mdl-checkbox__focus-helper, .mdl-checkbox__box-outline {
+      top: $indent / 4 + 1px;
     }
   }
   &__col_padding {

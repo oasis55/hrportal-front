@@ -1,5 +1,5 @@
-@import "../node_modules/material-design-lite/src/mixins";
 @import "../node_modules/material-design-lite/src/variables";
+@import "../node_modules/material-design-lite/src/mixins";
 @import "variables";
 
 .bar {
@@ -50,20 +50,17 @@
     color: $white;
     opacity: 0;
 
-    //transition: 0s 0s;
-
     //@include material-animation-default;
 
     &:hover {
-      opacity: 1;
-      //transition: 0s .2s;
+    //  opacity: 1;
       box-shadow: none;
     }
   }
-  //&--add-hover {
-  //  opacity: 1;
-  //  box-shadow: none;
-  //}
+  &--add-hover {
+    opacity: 1;
+    box-shadow: none;
+  }
   &--moving {
     cursor: move;
   }

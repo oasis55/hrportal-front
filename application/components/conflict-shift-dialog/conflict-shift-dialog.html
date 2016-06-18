@@ -29,9 +29,12 @@
                                 <div class="conflict__col_description color__color--red">авторешение</div>
                             </div>
                             <div class="conflict__col_right">
-                                <!--<button class="mdl-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;colored">Авторешение</button>-->
-                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-${$index}">
-                                    <input type="checkbox" id="checkbox-${$index}" class="mdl-checkbox__input">
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                       for="checkbox-${$index}"
+                                       mdl="checkbox">
+                                    <input id="checkbox-${$index}"
+                                           class="mdl-checkbox__input"
+                                           type="checkbox">
                                 </label>
                             </div>
                         </div>
@@ -53,17 +56,16 @@
                             <div class="conflict__row">
                                 <div class="conflict__col">
                                     <div class="conflict__col conflict__col_padding">${employer.name}</div>
-                                    <div class="conflict__col_description color__color--red">${employer.description}</div>
+                                    <div class="conflict__col_description">${employer.description}</div>
                                 </div>
                                 <div class="conflict__col_right">
-                                    <!--<button class="mdl-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;green-soft">Выбрать</button>-->
                                     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-                                           for="option-${$parent.$index}-${$index}">
+                                           for="option-${$parent.$index}-${$index}"
+                                           mdl="radio">
                                         <input type="radio"
                                                id="option-${$parent.$index}-${$index}"
                                                class="mdl-radio__button"
-                                               name="options-${$parent.$index}"
-                                               value="1">
+                                               name="options-${$parent.$index}">
                                     </label>
                                 </div>
                             </div>
@@ -73,9 +75,10 @@
             </div>
         </div>
         <div class="mdl-dialog__actions">
-            <button type="button" class="mdl-button" disabled.bind="disabled" click.trigger="save()">СОХРАНИТЬ</button>
-            <!--<button type="button" class="mdl-button" click.trigger="close()">ОТМЕНИТЬ</button>-->
-            <!--<button type="button" class="mdl-button schedule-dialog__btn_left">СБРОСИТЬ</button>-->
+            <button class="mdl-button" type="button"
+                    disabled.bind="disabledSave" click.trigger="save()">СОХРАНИТЬ</button>
+            <button class="mdl-button"  type="button"
+                    disabled.bind="disabledClear" click.trigger="clear()">СБРОСИТЬ</button>
         </div>
     </dialog>
 </template>

@@ -24,7 +24,7 @@ export class SnackBarCustomElement {
             let data = {
                 message:       this.data.message,
                 timeout:       this.data.timeout,
-                actionHandler: this.data.callback,
+                actionHandler: this.data.actionHandler,
                 actionText:    this.data.actionText
             };
             this.snack.MaterialSnackbar.showSnackbar(data);

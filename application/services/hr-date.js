@@ -35,7 +35,7 @@ export default class HRDate {
             day = moment(date).date(c).toDate();
             array.push({
                 date: day,
-                active: (day !== 0 && day !== 6)
+                active: (day.getDay() !== 0 && day.getDay() !== 6)
             });
         }
 

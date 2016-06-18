@@ -1,9 +1,9 @@
-import {customElement, bindable, bindingMode, BindingEngine, inject} from 'aurelia-framework';
-import * as mdl from 'material-design-lite/material.min'
-import {HttpClient}  from 'aurelia-fetch-client';
-import HRDate        from '../../services/hr-date'
-import $             from 'jquery'
-import _             from 'lodash'
+import {customElement, bindable, bindingMode, BindingEngine, inject} from 'aurelia-framework'
+// import * as mdl        from 'material-design-lite/material.min'
+import {HttpClient}    from 'aurelia-fetch-client'
+import HRDate          from '../../services/hr-date'
+import $               from 'jquery'
+import _               from 'lodash'
 
 @customElement('conflict-shift-dialog')
 @inject(BindingEngine)
@@ -13,27 +13,42 @@ import _             from 'lodash'
 })
 export class ConflictShiftDialogCustomElement {
 
-    conflictsArray    = [];
-    dateFormat       = HRDate.dateFormat;
     dialog;
     $dialog;
     data;
-    disabled         = true;
+
+    disabledSave   = true;
+    disabledClear  = true;
+    conflictsArray = [];
+    decisionsArray = [{
+        conflictId: null,
+        employerId: null
+    }];
+    dateFormat     = HRDate.dateFormat;
+
+    bindingEngine;
+    subscription;
 
     constructor(bindingEngine) {
         this.http = new HttpClient();
         this.bindingEngine = bindingEngine;
+        this.conflictsArray = [];
     }
 
     trigger() {
-        if(this.data) {
+        if (this.data) {
             let vm = this;
 
             function do_() {
                 vm.$dialog.find('.conflict__group')
                     .each((i, e) => $(e).find('.mdl-radio__button').eq(0).prop('checked', true));
-                _.forEach(vm.$dialog.find('.mdl-js-radio'), e => e.MaterialRadio = new MaterialRadio(e));
-                _.forEach(vm.$dialog.find('.mdl-js-checkbox'), e => e.MaterialCheckbox = new MaterialCheckbox(e))
+
+                // vm.$dialog.find('.mdl-js-radio').each((i, e) => e.MaterialRadio = new MaterialRadio(e));
+                // vm.$dialog.find('.mdl-js-checkbox').each((i, e) => e.MaterialCheckbox = new MaterialCheckbox(e));
+                // vm.$dialog.find('.mdl-js-checkbox .mdl-js-ripple-effect, .mdl-js-radio .mdl-js-ripple-effect')
+                //     .each((i, e) => new MaterialRipple(e));
+
+                vm.dialog.showModal()
             }
 
             this.http
@@ -56,15 +71,13 @@ export class ConflictShiftDialogCustomElement {
                                 if (index === this.conflictsArray.length - 1) {
                                     setTimeout(() => do_(), 10);
                                 }
-
                             });
 
                     }).bind(this));
-
-                    this.dialog.showModal()
                 });
 
         } else {
+            this.conflictsArray = [];
             this.dialog.close();
         }
     }
@@ -77,15 +90,58 @@ export class ConflictShiftDialogCustomElement {
         this.data = null;
     }
 
+    clear() {
+        this.decisionsArray = [];
+        this.checkDisabled();
+    }
+
     attached() {
+        this.subscription =
+            this.bindingEngine.expressionObserver(this, 'data').subscribe(this.trigger.bind(this));
+
         this.$dialog = $(this.dialog);
-        this.subscription = 
-            this.bindingEngine.expressionObserver(this, 'data').subscribe(::this.trigger);
     }
 
     detached() {
         this.subscription.dispose();
         this.subscription = null;
+    }
+
+    decisionTrigger(conflictId, employerId) {
+
+        if (employerId) {
+
+        } else {
+            if (this.decisionsArray.length === 0) {
+
+                this.decisionsArray.push({
+                    conflictId: conflictId,
+                    employerId: this.conflictsArray
+                                    .find(e => {return e.id === conflictId})
+                                    .decision
+                                    .employers
+                                    .find(e => {return e.priority === 0})
+                                    .id
+                });
+
+            } else {
+
+            }
+        }
+
+        console.log(this.decisionsArray);
+
+        this.checkDisabled();
+    }
+
+    checkDisabled() {
+        if (this.decisionsArray.length > 0) {
+            this.disabledClear = false;
+            this.disabledSave = false;
+        } else {
+            this.disabledClear = true;
+            this.disabledSave = true;
+        }
     }
 
 }

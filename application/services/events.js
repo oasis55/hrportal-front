@@ -1,13 +1,15 @@
 import moment from 'moment'
+import _      from 'lodash'
 
 export default class Events {
 
     // shift =
     // {
     //     id: 1,
-    //     userId: 1,
+    //     employerId: 1,
     //     startDate: new Date(),
-    //     endDate: new Date()
+    //     endDate: new Date(),
+    //     show: true
     // }
     //
     // conflict =
@@ -18,27 +20,60 @@ export default class Events {
     //     endDate: new Date()
     // }
 
-
-    shifts = [];
-    conflicts = [];
+    shiftsArray = [];
+    conflictsArray = [];
 
     constructor() {}
 
-    getShift(userId, date) {
-        return this.shifts.find((element) => {
-            return element.userId === userId && moment(element.startDate).isSame(date, 'day');
+    getShift(employerId, date) {
+        return this.shiftsArray.find((element) => {
+            return element.employerId === employerId && moment(element.startDate).isSame(date, 'day');
         });
+    }
+    
+    addShift(employerId, startDate, endDate) {
+        this.shiftsArray.push({
+            id:         null,
+            employerId: employerId,
+            startDate:  startDate,
+            endDate:    endDate,
+            show:       true
+        });
+
+        return this.shiftsArray.length - 1; // shiftIndex
+    }
+    
+    sendShift(shiftIndex) {
+        this.shiftsArray[shiftIndex].id = Events.__for_testing_getId(this.shiftsArray);
+    }
+    
+    changeShift(shiftId, startDate, endDate) {
+        Events.__for_testing_changeShift(shiftId, startDate, endDate, this.shiftsArray)
+    }
+
+    deleteShift(shiftId) {
+        this.shiftsArray = Events.__for_testing_deleteShift(shiftId, this.shiftsArray);
+    }
+
+    displayShift(shiftId, show) {
+        let shift = this.shiftsArray.find((element) => {
+            return element.id === shiftId;
+        });
+
+        if (shift) {
+           shift.show = show;
+        }
     }
 
     getConflict(placeId, date) {
-        return this.conflicts.find((element) => {
+        return this.conflictsArray.find((element) => {
             return element.placeId === placeId && moment(element.startDate).isSame(date, 'day');
         });
     }
     
     loadData(startDate, endDate) {
-        this.shifts = Events.__for_testing_getShifts();
-        this.conflicts = Events.__for_testing_getConflicts();
+        this.shiftsArray = Events.__for_testing_getShifts();
+        this.conflictsArray = Events.__for_testing_getConflicts();
     }
     
     static __for_testing_getShifts() {
@@ -60,9 +95,10 @@ export default class Events {
 
             event = {
                 id: id,
-                userId: getRandomInt(1, 10),
+                employerId: getRandomInt(1, 10),
                 startDate: moment(dateStart).hour(getRandomInt(7, 10)).toDate(),
-                endDate: moment(dateStart).hour(getRandomInt(15, 20)).toDate()
+                endDate: moment(dateStart).hour(getRandomInt(15, 20)).toDate(),
+                show: true
             };
 
             shifts.push(event);
@@ -99,5 +135,29 @@ export default class Events {
         }
 
         return conflicts;
+    }
+
+    static __for_testing_deleteShift(shiftId, shiftsArray) {
+        _.remove(shiftsArray, e => {return e.id === shiftId});
+        
+        return shiftsArray;
+    }
+    
+    static __for_testing_getId() {
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        return getRandomInt(100000  , 1000000);
+    }
+    
+    static __for_testing_changeShift(shiftId, startDate, endDate, shiftsArray) {
+        let shift = shiftsArray.find(e => {return e.id === shiftId});
+        
+        if (shift) {
+            shift.startDate = startDate;
+            shift.endDate = endDate;
+        }
     }
 }

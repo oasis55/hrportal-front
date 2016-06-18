@@ -64,10 +64,17 @@
             </p>
         </div>
         <div class="mdl-dialog__actions">
-            <button type="button" class="mdl-button" disabled.bind="disabled" click.trigger="save()">СОХРАНИТЬ</button>
-            <button type="button" class="mdl-button" click.trigger="delete()">УДАЛИТЬ</button>
-            <!--<button type="button" class="mdl-button" click.trigger="close()">ОТМЕНИТЬ</button>-->
-            <!--<button type="button" class="mdl-button schedule-dialog__btn_left">СБРОСИТЬ</button>-->
+            <button class="mdl-button" type="button"
+                    disabled.bind="(data.shift && disabled) || (data.shift.id === null)"
+                    click.trigger="save()">
+                СОХРАНИТЬ
+            </button>
+            <button class="mdl-button" type="button"
+                    if.bind="data.shift"
+                    disabled.bind="!data.shift.id"
+                    click.trigger="delete()">
+                УДАЛИТЬ
+            </button>
         </div>
     </dialog>
 </template>
