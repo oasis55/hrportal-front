@@ -80,7 +80,7 @@ export class Schedule {
         this.$schedule    = $(this.schedule);
         this.screenWidth  = this.$schedule.width();
         this.screenHeight = this.$schedule.height();
-        this.setPeriod('week');
+        this.setPeriod('day');
 
         this.intervalId = setInterval(::this.update, 30000);
         $(window).on('resize.schedule', ::this.resize);

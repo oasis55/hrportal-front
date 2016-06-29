@@ -32,27 +32,44 @@ export default class Events {
     }
     
     addShift(employerId, startDate, endDate) {
+        let index = _.findLastIndex(this.shiftsArray, e => {return e.id_ >= 0}),
+            id_   = index > 0 ? this.shiftsArray[index].id_ + 1 : 0;
+
         this.shiftsArray.push({
             id:         null,
+            id_:        id_,
             employerId: employerId,
             startDate:  startDate,
             endDate:    endDate,
             show:       true
         });
 
-        return this.shiftsArray.length - 1; // shiftIndex
+        return id_;
     }
     
-    sendShift(shiftIndex) {
-        this.shiftsArray[shiftIndex].id = Events.__for_testing_getId(this.shiftsArray);
+    sendShift(shiftId_) {
+        let shift = this.shiftsArray.find(e => {return e.id_ === shiftId_});
+
+        if (shift) {
+            shift.id = Events.__for_testing_getId(this.shiftsArray);
+            delete shift.id_;
+        }
     }
     
     changeShift(shiftId, startDate, endDate) {
         Events.__for_testing_changeShift(shiftId, startDate, endDate, this.shiftsArray)
     }
 
-    deleteShift(shiftId) {
-        this.shiftsArray = Events.__for_testing_deleteShift(shiftId, this.shiftsArray);
+    deleteShift(shiftId, shiftId_) {
+        if (shiftId) {
+            this.shiftsArray = Events.__for_testing_deleteShift(shiftId, this.shiftsArray);
+        } else {
+            let index = this.shiftsArray.findIndex(e => {return e.id_ === shiftId_});
+
+            if (index > 0) {
+                this.shiftsArray.splice(index, 1);
+            }
+        }
     }
 
     displayShift(shiftId, show) {
@@ -149,7 +166,7 @@ export default class Events {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        return getRandomInt(100000  , 1000000);
+        return getRandomInt(1, 10000000);
     }
     
     static __for_testing_changeShift(shiftId, startDate, endDate, shiftsArray) {

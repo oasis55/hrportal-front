@@ -74,12 +74,13 @@ export class WorkShiftDialogCustomElement {
     save() {
         ((employerId, shiftId, startDate, endDate, isAdd, context, contextContext) => {
 
-            let timeoutId,
+            let once = true,
+                timeoutId,
                 timeoutInterval,
                 snackBarData,
                 oldStartDate,
                 oldEndDate,
-                newShiftIndex;
+                shiftId_;
 
             if (context.data.shift) {
                 oldStartDate = new Date(context.data.shift.startDate);
@@ -90,21 +91,25 @@ export class WorkShiftDialogCustomElement {
             context.data = null;
 
             function actionHandler() {
-                context.countSave--;
-                clearTimeout(timeoutId);
+                if (once) {
+                    console.log('actionHandler', timeoutId);
+                    once = false;
+                    context.countSave--;
+                    clearTimeout(timeoutId);
 
-                if (isAdd) {
-                    contextContext.eventsService.deleteShift(null);
-                    contextContext.setPeriod(contextContext.period);
-                } else {
-                    contextContext.eventsService.changeShift(shiftId, oldStartDate, oldEndDate);
+                    if (isAdd) {
+                        contextContext.eventsService.deleteShift(undefined, shiftId_);
+                        contextContext.setPeriod(contextContext.period);
+                    } else {
+                        contextContext.eventsService.changeShift(shiftId, oldStartDate, oldEndDate);
+                    }
                 }
             }
 
             snackBarData = {};
 
             if (isAdd) {
-                newShiftIndex = contextContext.eventsService.addShift(employerId, startDate, endDate);
+                shiftId_ = contextContext.eventsService.addShift(employerId, startDate, endDate);
                 contextContext.setPeriod(contextContext.period);
                 snackBarData.message = 'Смена добавлена';
             } else {
@@ -123,11 +128,14 @@ export class WorkShiftDialogCustomElement {
             contextContext.snackBarData = snackBarData;
 
             timeoutId = setTimeout(() => {
+                console.log('setTimeout', timeoutId);
+                once = false;
                 context.countSave--;
                 if (isAdd) {
-                    contextContext.eventsService.sendShift(newShiftIndex);
+                    contextContext.eventsService.sendShift(shiftId_);
                 }
             }, timeoutInterval);
+            console.log('save', timeoutId);
 
         })(this.data.employer.id,
            this.data.shift && this.data.shift.id,
@@ -141,7 +149,8 @@ export class WorkShiftDialogCustomElement {
     delete() {
         ((shiftId, context, contextContext) => {
 
-            let timeoutId,
+            let once = true,
+                timeoutId,
                 timeoutInterval,
                 snackBarData;
 
@@ -150,9 +159,12 @@ export class WorkShiftDialogCustomElement {
             contextContext.eventsService.displayShift(shiftId, false);
 
             function actionHandler() {
-                clearTimeout(timeoutId);
-                context.countDelete--;
-                contextContext.eventsService.displayShift(shiftId, true);
+                if (once) {
+                    once = false;
+                    clearTimeout(timeoutId);
+                    context.countDelete--;
+                    contextContext.eventsService.displayShift(shiftId, true);
+                }
             }
 
             snackBarData = {
@@ -170,6 +182,7 @@ export class WorkShiftDialogCustomElement {
             contextContext.snackBarData = snackBarData;
 
             timeoutId = setTimeout(() => {
+                once = false;
                 context.countDelete--;
                 contextContext.eventsService.deleteShift(shiftId);
                 contextContext.setPeriod(contextContext.period);

@@ -28,6 +28,7 @@ System.config({
 
   map: {
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.2.1",
+    "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.2.0.1",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.5",
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.2.5",
     "aurelia-http-client": "npm:aurelia-http-client@1.0.0-beta.1.2.2",
@@ -145,6 +146,9 @@ System.config({
     },
     "npm:aurelia-event-aggregator@1.0.0-beta.1.2.1": {
       "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1.2.1"
+    },
+    "npm:aurelia-event-aggregator@1.0.0-beta.2.0.1": {
+      "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.2.0.1"
     },
     "npm:aurelia-framework@1.0.0-beta.1.2.5": {
       "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.3.6",

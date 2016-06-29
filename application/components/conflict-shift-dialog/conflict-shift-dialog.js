@@ -1,12 +1,12 @@
 import {customElement, bindable, bindingMode, BindingEngine, inject} from 'aurelia-framework'
-// import * as mdl        from 'material-design-lite/material.min'
-import {HttpClient}    from 'aurelia-fetch-client'
-import HRDate          from '../../services/hr-date'
-import $               from 'jquery'
-import _               from 'lodash'
+import {EventAggregator} from 'aurelia-event-aggregator';
+import {HttpClient}      from 'aurelia-fetch-client'
+import HRDate            from '../../services/hr-date'
+import $                 from 'jquery'
+import _                 from 'lodash'
 
 @customElement('conflict-shift-dialog')
-@inject(BindingEngine)
+@inject(BindingEngine, EventAggregator)
 @bindable({
     name: 'data',
     defaultBindingMode: bindingMode.twoWay
@@ -28,11 +28,16 @@ export class ConflictShiftDialogCustomElement {
 
     bindingEngine;
     subscription;
+    
+    context        = this;
 
-    constructor(bindingEngine) {
+    constructor(bindingEngine, eventAggregator) {
         this.http = new HttpClient();
         this.bindingEngine = bindingEngine;
-        this.conflictsArray = [];
+        this.decisionsArray = [];
+
+        this.eventAggregator = eventAggregator;
+        window.__c = this;
     }
 
     trigger() {
@@ -40,8 +45,8 @@ export class ConflictShiftDialogCustomElement {
             let vm = this;
 
             function do_() {
-                vm.$dialog.find('.conflict__group')
-                    .each((i, e) => $(e).find('.mdl-radio__button').eq(0).prop('checked', true));
+                // vm.$dialog.find('.conflict__group')
+                //     .each((i, e) => $(e).find('.mdl-radio__button').eq(0).trigger('click'));
 
                 // vm.$dialog.find('.mdl-js-radio').each((i, e) => e.MaterialRadio = new MaterialRadio(e));
                 // vm.$dialog.find('.mdl-js-checkbox').each((i, e) => e.MaterialCheckbox = new MaterialCheckbox(e));
@@ -67,6 +72,7 @@ export class ConflictShiftDialogCustomElement {
                             .then(response => response.json())
                             .then(data => {
                                 conflict.decision = data;
+                                // conflict.decision.employers[0].checked = true;
 
                                 if (index === this.conflictsArray.length - 1) {
                                     setTimeout(() => do_(), 10);
@@ -90,9 +96,8 @@ export class ConflictShiftDialogCustomElement {
         this.data = null;
     }
 
-    clear() {
-        this.decisionsArray = [];
-        this.checkDisabled();
+    ignore() {
+        this.data = null;
     }
 
     attached() {
@@ -107,30 +112,51 @@ export class ConflictShiftDialogCustomElement {
         this.subscription = null;
     }
 
-    decisionTrigger(conflictId, employerId) {
+    decisionTrigger(conflictId, employerId, checkboxIndex) {
+        console.log('decisionTrigger');
+
+        let index;
+            // conflictId = data.conflictId,
+            // employerId = data.employerId;
 
         if (employerId) {
 
-        } else {
-            if (this.decisionsArray.length === 0) {
+            index = this.decisionsArray.findIndex(e => {return e.conflictId === conflictId});
+
+            if (index < 0) { // add
 
                 this.decisionsArray.push({
                     conflictId: conflictId,
-                    employerId: this.conflictsArray
-                                    .find(e => {return e.id === conflictId})
-                                    .decision
-                                    .employers
-                                    .find(e => {return e.priority === 0})
-                                    .id
+                    employerId: employerId
                 });
 
-            } else {
+                this.$dialog.find('.mdl-checkbox input').eq(checkboxIndex).trigger('click');
+
+            } else { // change
+
+                this.decisionsArray[index].employerId = employerId;
 
             }
+
+        } else {
+
+            index = this.decisionsArray.findIndex(e => {return e.conflictId === conflictId});
+
+            if (index < 0) { // add
+
+                this.decisionsArray.push({
+                    conflictId: conflictId,
+                    employerId: this.conflictsArray.find(e => {return e.id === conflictId}).decision
+                                .employers.find(e => {return e.priority === 0}).id
+                });
+
+            } else { // delete
+                this.decisionsArray.splice(index, 1);
+            }
+
         }
 
         console.log(this.decisionsArray);
-
         this.checkDisabled();
     }
 

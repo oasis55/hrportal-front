@@ -1,14 +1,42 @@
 [
   {
     "id": 1,
-    "startDate":  1465801200298,
+    "startDate": 1465801200298,
     "endDate": 1465808400298,
     "code": 1,
     "description": "Требуется менеджер"
   },
   {
     "id": 2,
-    "startDate":  1465822800298,
+    "startDate": 1465822800298,
+    "endDate": 1465833600298,
+    "code": 1,
+    "description": "Требуется менеджер"
+  },
+  {
+    "id": 3,
+    "startDate": 1465801200298,
+    "endDate": 1465808400298,
+    "code": 1,
+    "description": "Требуется менеджер"
+  },
+  {
+    "id": 4,
+    "startDate": 1465822800298,
+    "endDate": 1465833600298,
+    "code": 1,
+    "description": "Требуется менеджер"
+  },
+  {
+    "id": 5,
+    "startDate": 1465801200298,
+    "endDate": 1465808400298,
+    "code": 1,
+    "description": "Требуется менеджер"
+  },
+  {
+    "id": 6,
+    "startDate": 1465822800298,
     "endDate": 1465833600298,
     "code": 1,
     "description": "Требуется менеджер"

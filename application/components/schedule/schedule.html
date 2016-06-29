@@ -148,27 +148,20 @@
                                     <i class="mdi mdi-plus"></i>
                                 </div>
 
-                                <!--<div class="bar"-->
-                                     <!--if.bind="inflated &&-->
-                                              <!--period !== 'day' &&-->
-                                              <!--getShift(employer.id, level2.date)"-->
-                                     <!--click.trigger="openWorkShiftDialog(place, employer, level2.date, getShift(employer.id, level2.date))"-->
-                                     <!--class.bind="(level1.time < 0 ?-->
-                                                  <!--'bar&#45;&#45;past schedule-color__past_' + employer.colorCode :-->
-                                                  <!--'schedule-color__' + employer.colorCode) + ' ' +-->
-                                                 <!--(period === 'month' ? 'bar&#45;&#45;wide' : '')"></div>-->
-                                <!--<div class="bar bar&#45;&#45;add"-->
-                                     <!--if.bind="inflated &&-->
-                                              <!--period !== 'day' &&-->
-                                              <!--level1.time >= 0 &&-->
-                                              <!--!getShift(employer.id, level2.date)"-->
-                                     <!--click.trigger="openWorkShiftDialog(place, employer, level2.date)"-->
-                                     <!--class.bind="('schedule-color__fade_' + employer.colorCode) + ' ' +-->
-                                                 <!--(period === 'month' ? 'bar&#45;&#45;wide' : '')">-->
-                                    <!--<i class="mdi mdi-plus"></i>-->
-                                <!--</div>-->
-
                             </div>
+
+                            <!--<div class="bar"-->
+                                 <!--if.bind="inflated && period === 'day'"-->
+                                 <!--bar-touch.bind="{-->
+                                        <!--level1:   level1,-->
+                                        <!--level2:   level2,-->
+                                        <!--place:    place,-->
+                                        <!--employer: employer,-->
+                                        <!--shift:    getShift(employer.id, level1.dateArray[0].date),-->
+                                        <!--context:  context-->
+                                     <!--}">-->
+
+                            <!--</div>-->
 
                             <bar if.bind="inflated && period === 'day'"
                                  config.bind="{
@@ -182,6 +175,7 @@
                                  }"
                                  data.bind="getShift(employer.id, level1.dateArray[0].date)"
                                  containerless></bar>
+
 
                         </div>
                     </div>

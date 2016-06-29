@@ -19,7 +19,7 @@ class BarEvents {
 
     constructor() {
         if(!instance){
-            console.log('once: constructor');
+            // console.log('once: constructor');
 
             instance = this;
             instance.count = 0
@@ -166,7 +166,7 @@ class BarEvents {
     destructor() {
         instance.count--;
         if (instance.count === 0) {
-            console.log('once: destructor');
+            // console.log('once: destructor');
             $(document).undelegate('.bar', 'mousedown.barevents touchstart.barevents');
             $(document).undelegate('',     'mousemove.barevents touchmove.barevents');
             $(document).undelegate('',     'mouseup.barevents touchend.barevents');

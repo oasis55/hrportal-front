@@ -52,8 +52,8 @@ export default class HRDate {
 
     static time(units, date, currentDate = new Date) {
         if (moment(date).isBefore(currentDate, units)) return -1;
-        if (moment(date).isSame(currentDate, units))   return 0;
-        if (moment(date).isAfter(currentDate, units))  return 1;
+        if (moment(date).isSame(currentDate, units))   return  0;
+        if (moment(date).isAfter(currentDate, units))  return  1;
     }
 
     static equal(units, date, currentDate = new Date) {

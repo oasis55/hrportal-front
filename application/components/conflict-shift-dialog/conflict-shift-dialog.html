@@ -1,4 +1,6 @@
 <template>
+    <require from="../mdl-bind"></require>
+
     <dialog class="schedule-dialog mdl-dialog" ref="dialog">
         <button class="schedule-dialog__btn_close mdl-button mdl-js-button mdl-button--icon"
                 click.trigger="close()">
@@ -29,13 +31,19 @@
                                 <div class="conflict__col_description color__color--red">авторешение</div>
                             </div>
                             <div class="conflict__col_right">
+
+                                <!--click.trigger="decisionTrigger(conflict.id, employer.id)"-->
+
                                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
                                        for="checkbox-${$index}"
+                                       mdl-bind.bind="conflict.checked"
                                        mdl="checkbox">
-                                    <input id="checkbox-${$index}"
+                                    <input type="checkbox"
+                                           id="checkbox-${$index}"
                                            class="mdl-checkbox__input"
-                                           type="checkbox">
+                                           change.delegate="checkDisabled()">
                                 </label>
+
                             </div>
                         </div>
                     </div>
@@ -59,13 +67,18 @@
                                     <div class="conflict__col_description">${employer.description}</div>
                                 </div>
                                 <div class="conflict__col_right">
+
+                                    <!--click.trigger="decisionTrigger(conflict.id, employer.id, $parent.$index)"-->
+
                                     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-                                           for="option-${$parent.$index}-${$index}"
-                                           mdl="radio">
+                                           mdl-bind.bind="conflict.radio"
+                                           mdl="radio"
+                                           for="option-${$parent.$index}-${$index}">
                                         <input type="radio"
                                                id="option-${$parent.$index}-${$index}"
                                                class="mdl-radio__button"
-                                               name="options-${$parent.$index}">
+                                               name="options-${$parent.$index}"
+                                               change.delegate="checkDisabled()">
                                     </label>
                                 </div>
                             </div>
@@ -76,9 +89,14 @@
         </div>
         <div class="mdl-dialog__actions">
             <button class="mdl-button" type="button"
-                    disabled.bind="disabledSave" click.trigger="save()">СОХРАНИТЬ</button>
+                    disabled.bind="disabledSave"
+                    click.trigger="save()">
+                Сохранить
+            </button>
             <button class="mdl-button"  type="button"
-                    disabled.bind="disabledClear" click.trigger="clear()">СБРОСИТЬ</button>
+                    click.trigger="ignore()">
+                Игнорировать
+            </button>
         </div>
     </dialog>
 </template>
