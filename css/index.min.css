@@ -11238,6 +11238,12 @@ body {
   overflow: hidden;
   text-overflow: ellipsis; }
 
+.conflict__disabled {
+  color: #ababab; }
+  .conflict__disabled .color__color--green_soft,
+  .conflict__disabled .color__color--red {
+    color: #ababab; }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *

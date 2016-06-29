@@ -1,7 +1,7 @@
 <template>
     <require from="../mdl-bind"></require>
 
-    <dialog class="schedule-dialog mdl-dialog" ref="dialog">
+    <dialog class="schedule-dialog mdl-dialog" ref="dialog" >
         <button class="schedule-dialog__btn_close mdl-button mdl-js-button mdl-button--icon"
                 click.trigger="close()">
             <i class="mdi mdi-close"></i>
@@ -28,26 +28,31 @@
                         <div class="conflict__col">
                             <div class="conflict__col">
                                 <div class="conflict__col conflict__col_padding">${conflict.description}</div>
-                                <div class="conflict__col_description color__color--red">авторешение</div>
+                                <div class="conflict__col_description color__color--red">
+                                    ${ conflict.choosen ? 'решение' : 'авторешение' }
+                                </div>
                             </div>
                             <div class="conflict__col_right">
 
                                 <!--click.trigger="decisionTrigger(conflict.id, employer.id)"-->
+                                <!--mdl-bind.bind="conflict.checked"-->
 
                                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
                                        for="checkbox-${$index}"
-                                       mdl-bind.bind="conflict.checked"
+                                       ref="conflict.element"
                                        mdl="checkbox">
                                     <input type="checkbox"
                                            id="checkbox-${$index}"
                                            class="mdl-checkbox__input"
-                                           change.delegate="checkDisabled()">
+                                           ref="conflict.inputElement"
+                                           change.delegate="checkGroup($event, conflict)">
                                 </label>
 
                             </div>
                         </div>
                     </div>
                     <div class="conflict__group"
+                         class.bind="conflict.inputElement.checked ? '' : 'conflict__disabled'"
                          show.bind="conflict.open">
                         <div class="conflict__row_inner"
                              repeat.for="employer of conflict.decision.employers">
@@ -69,16 +74,20 @@
                                 <div class="conflict__col_right">
 
                                     <!--click.trigger="decisionTrigger(conflict.id, employer.id, $parent.$index)"-->
+                                    <!--mdl-bind.bind="conflict.radio"-->
 
                                     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-                                           mdl-bind.bind="conflict.radio"
+                                           class.bind="conflict.inputElement.checked ? '' : 'is-disabled'"
+                                           ref="employer.element"
                                            mdl="radio"
                                            for="option-${$parent.$index}-${$index}">
                                         <input type="radio"
                                                id="option-${$parent.$index}-${$index}"
                                                class="mdl-radio__button"
                                                name="options-${$parent.$index}"
-                                               change.delegate="checkDisabled()">
+                                               disabled.bind="!conflict.inputElement.checked"
+                                               ref="employer.inputElement"
+                                               change.delegate="chooseDecision($event, conflict)">
                                     </label>
                                 </div>
                             </div>

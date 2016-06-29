@@ -68,4 +68,12 @@
     text-overflow: ellipsis;
   }
 
+  &__disabled {
+    color: $gray65;
+    .color__color--green_soft,
+    .color__color--red {
+      color: $gray65;
+    }
+  }
+
 }
