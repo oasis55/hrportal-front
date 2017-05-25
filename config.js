@@ -91,6 +91,7 @@ System.config({
     },
     "github:genadis/aurelia-mdl@0.1.0": {
       "aurelia-event-aggregator": "github:aurelia/event-aggregator@0.10.0",
+      "aurelia-framework": "github:aurelia/framework@0.18.0",
       "encapsulated-mdl": "github:genadis/encapsulated-mdl@2.1.1"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
